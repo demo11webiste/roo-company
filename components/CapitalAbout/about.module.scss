@@ -1,0 +1,254 @@
+@import "../../styles/breakpoint";
+
+.bg {
+  padding-top: 80px;
+  background-image: url("/capital-about-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+.box {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  max-width: 935px;
+  margin-bottom: 200px;
+  h4 {
+    font-weight: 600;
+    color: var(--secondary);
+    @include lg {
+      margin-bottom: 80px;
+      font-size: toRem(18);
+      line-height: calc(toRem(18) * 1.5);
+    }
+  }
+  h1 {
+    font-weight: 600;
+    @include lg {
+      margin-bottom: 60px;
+      font-size: toRem(48);
+      line-height: calc(toRem(48) * 1.2);
+    }
+  }
+  p {
+    font-weight: 400;
+    @include lg {
+      margin-bottom: 40px;
+      font-size: toRem(22);
+      line-height: calc(toRem(22) * 1.4);
+    }
+  }
+}
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 200px;
+  h4 {
+    font-weight: 600;
+    text-align: center;
+    @include lg {
+      font-size: toRem(22);
+      line-height: calc(toRem(22) * 1.4);
+      margin-bottom: 80px;
+    }
+  }
+  h1 {
+    text-align: center;
+    font-weight: 600;
+    max-width: 770px;
+    @include lg {
+      font-size: toRem(36);
+      line-height: calc(36px * 1.3);
+    }
+  }
+
+  &_grid {
+    display: flex;
+    margin-top: 70px;
+
+    div:nth-child(1) {
+      background-color: rgba(247, 146, 40, 0.3);
+    }
+    div:nth-child(2) {
+      background-color: rgba(192, 16, 64, 0.3);
+    }
+  }
+
+  &_card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    width: 390px;
+    height: 400px;
+    h2 {
+      font-weight: 600;
+      text-align: center;
+      @include lg {
+        font-size: toRem(36);
+        line-height: calc(toRem(36) * 1.3);
+      }
+    }
+    h3 {
+      font-weight: 400;
+      text-align: center;
+      @include lg {
+        font-size: toRem(38);
+        line-height: calc(toRem(38) * 1.2);
+      }
+    }
+    p {
+      font-weight: 400;
+      text-align: center;
+      @include lg {
+        font-size: toRem(18);
+        line-height: calc(toRem(18) * 1.5);
+      }
+    }
+  }
+}
+
+.sayGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  @include lg {
+    margin-bottom: 200px;
+  }
+  h4 {
+    font-weight: 600;
+    color: var(--secondary);
+    @include lg {
+      margin-bottom: 80px;
+      font-size: toRem(18);
+      line-height: calc(toRem(18) * 1.5);
+    }
+  }
+}
+
+.sayCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &[data-flex="true"] {
+    flex-direction: row-reverse;
+  }
+  &_box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 630px;
+    h4 {
+      color: var(--light);
+      font-weight: 600;
+      margin-bottom: 0px;
+      @include lg {
+        font-size: toRem(26px);
+        line-height: calc(26px * 1.4);
+      }
+    }
+    p {
+      font-weight: 400;
+      @include lg {
+        font-size: toRem(16);
+        line-height: calc(toRem(16) * 1.5);
+      }
+    }
+  }
+  &_img {
+    position: relative;
+    height: 320px;
+    width: 320px;
+    min-width: 320px;
+    border: 8px solid var(--secondary);
+    border-radius: 999px;
+    padding: 50px;
+    div {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      img {
+        object-fit: contain;
+      }
+    }
+  }
+}
+
+.member {
+  background-image: linear-gradient(to top, #96378f, #ea2652, #f79125);
+  width: 100%;
+  height: 550px;
+  &_box {
+    display: flex;
+    max-width: 1200px;
+    margin-inline: auto;
+    width: 100%;
+    height: 100%;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  &_img {
+    position: relative;
+    width: 385px;
+    height: 485px;
+    min-width: 385px;
+  }
+  &_content {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-bottom: 60px;
+    max-width: 660px;
+    h1 {
+      font-weight: 600;
+      @include lg {
+        font-size: toRem(38);
+        line-height: calc(toRem(38) * 1.2);
+      }
+    }
+    h5 {
+      font-weight: 500;
+      @include lg {
+        font-size: toRem(24);
+        line-height: calc(toRem(24) * 1.5);
+      }
+    }
+    p {
+      font-weight: 400;
+      @include lg {
+        font-size: toRem(14);
+        line-height: calc(toRem(14) * 1.5);
+      }
+    }
+    button {
+      background-color: transparent;
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      color: var(--secondary);
+      width: fit-content;
+      cursor: pointer;
+      @include lg {
+        font-size: toRem(14);
+        line-height: calc(toRem(14) * 1.5);
+      }
+      svg {
+        font-size: toRem(22);
+        line-height: calc(toRem(22) * 1.5);
+      }
+    }
+  }
+}

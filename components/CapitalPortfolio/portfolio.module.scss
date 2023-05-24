@@ -1,0 +1,137 @@
+@import "../../styles/breakpoint";
+
+.main {
+  background-image: url("/capital-portfolio-bg.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-top: 180px;
+  gap: 40px;
+  min-height: 100vh;
+  h5 {
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--secondary);
+    @include lg {
+      font-size: toRem(20);
+      line-height: calc(toRem(20) * 1.4);
+    }
+  }
+}
+
+.cover {
+  display: flex;
+  &[data-close="true"] {
+    transform: translateX(100px);
+  }
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 200px;
+  transform: scale(0.7);
+
+  @media screen and (min-width: 1500px) {
+    transform: scale(0.8);
+  }
+  @media screen and (min-width: 1920px) {
+    transform: scale(0.95);
+  }
+}
+
+.box {
+  height: 325px;
+  width: 325px;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 40px;
+  gap: 40px;
+  position: relative;
+  &_detail {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    p {
+      font-size: toRem(18);
+      line-height: calc(toRem(18) * 1.5);
+    }
+  }
+  h5 {
+    height: 40px;
+    width: fit-content;
+    padding-inline: 26px;
+    border-radius: 3px;
+    background-color: var(--secondary);
+    position: absolute;
+    font-weight: 500;
+    text-align: center;
+    color: var(--light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inset: 0;
+    text-transform: uppercase;
+    @include lg {
+      font-size: toRem(14);
+      line-height: calc(toRem(14) * 1.5);
+    }
+  }
+  &_img {
+    position: relative;
+    width: 188px;
+    height: 84px;
+    &[data-close] {
+      width: 145px;
+      height: 125px;
+    }
+    img {
+      object-fit: contain;
+    }
+  }
+  &[data-change="true"] {
+    transform: translateY(300px) translateX(-100px);
+  }
+  &[data-close="true"] {
+    transform: translateX(-150px);
+  }
+  &[data-active="true"] {
+    height: 660px;
+    width: 516px;
+    min-width: 516px;
+    h4 {
+      font-weight: 400;
+      @include lg {
+        font-size: toRem(22);
+        line-height: calc(toRem(22) * 1.4);
+      }
+    }
+    button {
+      height: 45px;
+      width: 125px;
+      background-color: transparent;
+      border: 1px solid var(--secondary);
+      border-radius: 5px;
+      font-size: toRem(14);
+      line-height: calc(toRem(14) * 1.5);
+      color: var(--secondary);
+      font-weight: 500;
+      align-self: flex-start;
+    }
+  }
+  @include lg {
+    min-width: 325px;
+  }
+}

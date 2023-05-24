@@ -1,0 +1,223 @@
+@import "../../styles/breakpoint";
+
+.main {
+  background-image: url("/capital-contact-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  &[data-condition="true"] {
+    background-image: url("/search-contact-bg.png");
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 180px;
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  margin-bottom: 70px;
+  h5 {
+    font-weight: 400;
+    text-transform: capitalize;
+    color: var(--secondary);
+    @include lg {
+      font-size: toRem(20);
+      line-height: calc(toRem(20) * 1.5);
+    }
+  }
+
+  h1 {
+    font-weight: 600;
+    max-width: 980px;
+    @include lg {
+      font-size: toRem(48);
+      line-height: calc(toRem(48) * 1.2);
+    }
+  }
+  p {
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    svg {
+      color: var(--secondary);
+      margin-right: 10px;
+      font-size: toRem(25);
+    }
+    @include lg {
+      font-size: toRem(18);
+      line-height: calc(toRem(18) * 1.5);
+    }
+  }
+}
+
+.detail {
+  display: flex;
+  gap: 50px;
+  margin-bottom: 120px;
+  &_box {
+    display: flex;
+    gap: 26px;
+    svg {
+      color: var(--secondary);
+      font-size: toRem(20);
+      margin-top: 4px;
+    }
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      h5 {
+        margin-bottom: 10px;
+        font-weight: 600;
+        text-transform: uppercase;
+        @include lg {
+          font-size: toRem(18);
+          line-height: calc(toRem(18) * 1.5);
+        }
+      }
+      p {
+        font-weight: 400;
+        @include lg {
+          font-size: toRem(18);
+          line-height: calc(toRem(18) * 1.5);
+        }
+      }
+    }
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  max-width: 940px;
+  margin-bottom: 150px;
+
+  h2 {
+    text-transform: uppercase;
+    font-weight: 400;
+    @include lg {
+      font-size: toRem(20);
+      line-height: calc(toRem(20));
+    }
+  }
+
+  button {
+    background-color: var(--secondary);
+    border-radius: 8px;
+    font-size: toRem(14);
+    line-height: calc(toRem(14) * 1.5);
+    color: var(--light);
+    align-self: flex-end;
+    border: none;
+    height: 45px;
+    width: 150px;
+  }
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  column-gap: 8px;
+  row-gap: 16px;
+
+  input {
+    border: none;
+    font-family: "Raleway", sans-serif;
+    background-color: #959597;
+    height: 50px;
+    padding: 10px;
+    font-size: toRem(14);
+    line-height: calc(toRem(14) * 1.5);
+    color: var(--light);
+    &::placeholder {
+      color: var(--light);
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+  textarea {
+    padding: 10px;
+    background-color: #959597;
+    grid-column: 1/3;
+    font-family: "Raleway", sans-serif;
+    &::placeholder {
+      color: var(--light);
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.bottom {
+  background-color: var(--primary);
+  height: 515px;
+  display: flex;
+  align-items: center;
+  &[data-condition="true"] {
+    background-color: #e91b50;
+  }
+  &_img {
+    position: relative;
+    width: 250px;
+    height: 88px;
+    img {
+      object-fit: contain;
+    }
+  }
+  &_box {
+    max-width: 1200px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 46px;
+    align-items: center;
+    justify-content: center;
+    h5 {
+      font-weight: 400;
+      text-transform: uppercase;
+      text-align: center;
+      @include lg {
+        font-size: toRem(18);
+        line-height: calc(toRem(18) * 1.5);
+      }
+    }
+    h1 {
+      text-align: center;
+      color: var(--secondary);
+      font-weight: 600;
+      @include lg {
+        font-size: toRem(40);
+        line-height: calc(toRem(40) * 1.2);
+      }
+    }
+    p {
+      font-weight: 400;
+      text-align: center;
+      max-width: 480px;
+      @include lg {
+        font-size: toRem(16);
+        line-height: calc(toRem(16) * 1.5);
+      }
+    }
+  }
+}
+
+.map {
+  border: none;
+  @include lg {
+    width: 780px;
+    height: 440px;
+    margin-bottom: 70px;
+  }
+}

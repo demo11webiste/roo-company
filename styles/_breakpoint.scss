@@ -1,0 +1,15 @@
+@mixin md {
+  @media screen and (min-width: 600px) {
+    @content;
+  }
+}
+@mixin lg {
+  @media screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+@function toRem($value) {
+  $remValue: calc($value / 16) + rem;
+  @return $remValue;
+}
