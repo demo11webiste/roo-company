@@ -3,6 +3,9 @@
   background-image: url("/search-bio-bg.png");
   background-repeat: no-repeat;
   background-position: center;
+  &[data-bg="true"] {
+    background-image: url("/capital-bio-bg.png");
+  }
 }
 
 .container {

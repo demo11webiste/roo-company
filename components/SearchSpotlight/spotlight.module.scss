@@ -6,6 +6,9 @@
   background-size: cover;
   background-position: center;
   padding-top: 180px;
+  &[data-bg="true"] {
+    background-image: url("/capital-spotlight-bg.png");
+  }
 }
 
 .main {

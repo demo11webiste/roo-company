@@ -1,8 +1,10 @@
 import Image from "next/image";
 import s from "./portfolio.module.scss";
 import Footer from "../Footer/Footer";
+import { useRouter } from "next/router";
 
 const CapitalPortfolio = () => {
+  const { push } = useRouter();
   return (
     <>
       <section className={s.main}>
@@ -38,7 +40,9 @@ const CapitalPortfolio = () => {
                 out agency middlemen so shifts are filled directly with the
                 right temporary staff.
               </h4>
-              <button>Read More</button>
+              <button onClick={() => push("/roo-capital-portfolio/florence")}>
+                Read More
+              </button>
             </div>
 
             <div className={s.cover}>

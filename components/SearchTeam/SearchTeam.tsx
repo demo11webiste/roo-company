@@ -1,11 +1,18 @@
 import Image from "next/image";
 import s from "./team.module.scss";
 import Footer from "../Footer/Footer";
+import { useRouter } from "next/router";
 
-const SearchTeam = () => {
+type Props = {
+  bgChange?: boolean;
+};
+
+const SearchTeam: React.FC<Props> = ({ bgChange = false }) => {
+  const { push } = useRouter();
+
   return (
     <>
-      <section className={s.main}>
+      <section data-bg={bgChange} className={s.main}>
         <div className={s.container}>
           <h5>the roo SEARCH team</h5>
           <div className={s.grid}>
@@ -23,7 +30,15 @@ const SearchTeam = () => {
                 <p>Firstname Lastname</p>
               </div>
             </div>
-            <div data-close className={s.active}>
+            <div
+              onClick={() =>
+                bgChange
+                  ? push("/roo-capital-team/first-name")
+                  : push("/roo-search-team/first-name")
+              }
+              data-close
+              className={s.active}
+            >
               <div className={s.active_img}>
                 <Image src="/team/partner.png" alt="'partner" fill />
               </div>

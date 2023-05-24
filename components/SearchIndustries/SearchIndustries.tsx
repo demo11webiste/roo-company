@@ -1,7 +1,9 @@
+import { useRouter } from "next/router";
 import Footer from "../Footer/Footer";
 import s from "./industries.module.scss";
 
 const SearchIndustries = () => {
+  const { push } = useRouter();
   return (
     <>
       <section className={s.main}>
@@ -30,7 +32,11 @@ const SearchIndustries = () => {
                 digital health organizations or initiatives to stay ahead of the
                 curve and drive innovation in healthcare.
               </h4>
-              <button>Read More</button>
+              <button
+                onClick={() => push("/roo-search-industries/digital-health")}
+              >
+                Read More
+              </button>
             </div>
             <div className={s.cover}>
               <div className={s.box}>

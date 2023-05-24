@@ -3,10 +3,14 @@ import s from "./spotlight.module.scss";
 import Image from "next/image";
 import Footer from "../Footer/Footer";
 
-const Spotlight = () => {
+type Props = {
+  bgChange: boolean;
+};
+
+const Spotlight: React.FC<Props> = ({ bgChange }) => {
   return (
     <>
-      <div className={s.bg}>
+      <div data-bg={bgChange} className={s.bg}>
         <section className={s.main}>
           <div className={s.header}>
             <h4>industry expertise</h4>
