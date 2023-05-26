@@ -5,7 +5,10 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  padding-top: 180px;
+  padding-top: 120px;
+  @include lg {
+    padding-top: 180px;
+  }
   &[data-bg="true"] {
     background-image: url("/capital-spotlight-bg.png");
   }
@@ -16,19 +19,29 @@
   margin-inline: auto;
   display: flex;
   flex-direction: column;
+  padding-inline: 25px;
+  @include lg {
+    padding-inline: 0px;
+  }
 }
 
 .header {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 80px;
+  justify-content: flex-end;
   align-items: center;
+  margin-bottom: 40px;
+  @include lg {
+    margin-bottom: 80px;
+    justify-content: space-between;
+  }
 
   h4 {
+    display: none;
     font-weight: 600;
     text-transform: uppercase;
     color: var(--secondary);
     @include lg {
+      display: block;
       font-size: toRem(20);
       line-height: calc(toRem(20));
     }
@@ -37,6 +50,8 @@
     font-weight: 500;
     color: var(--secondary);
     cursor: pointer;
+    font-size: toRem(20);
+    line-height: calc(toRem(20) * 1.5);
     @include lg {
       font-size: toRem(14);
       line-height: calc(toRem(14) * 1.5);
@@ -48,11 +63,15 @@
   display: flex;
   justify-content: flex-end;
   gap: 80px;
+  flex-direction: column;
+  @include lg {
+    flex-direction: row;
+  }
 }
 
 .outer {
-  width: 700px;
-  height: 650px;
+  width: 100%;
+  height: fit-content;
   background-color: #2a2b2f;
   color: var(--light);
   display: flex;
@@ -60,7 +79,11 @@
   justify-content: center;
   flex-direction: column;
   gap: 60px;
+  padding: 20px;
   @include lg {
+    padding: 0;
+    width: 700px;
+    height: 650px;
     min-width: 500px;
   }
   @media screen and (min-width: 1600px) {

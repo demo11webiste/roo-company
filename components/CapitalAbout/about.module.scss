@@ -13,17 +13,29 @@
   flex-direction: column;
   max-width: 1200px;
   margin-inline: auto;
+  padding-inline: 25px;
+  @include lg {
+    padding-inline: 0px;
+  }
 }
 
 .box {
-  margin-top: 100px;
   display: flex;
   flex-direction: column;
   max-width: 935px;
-  margin-bottom: 200px;
+  margin-top: 40px;
+  margin-bottom: 90px;
+  gap: 40px;
+  @include lg {
+    gap: 0px;
+    margin-top: 100px;
+    margin-bottom: 200px;
+  }
   h4 {
     font-weight: 600;
     color: var(--secondary);
+    font-size: toRem(20);
+    line-height: calc(toRem(20) * 1.5);
     @include lg {
       margin-bottom: 80px;
       font-size: toRem(18);
@@ -32,6 +44,8 @@
   }
   h1 {
     font-weight: 600;
+    font-size: toRem(28);
+    line-height: calc(toRem(28) * 1.3);
     @include lg {
       margin-bottom: 60px;
       font-size: toRem(48);
@@ -40,6 +54,8 @@
   }
   p {
     font-weight: 400;
+    font-size: toRem(16);
+    line-height: calc(toRem(16) * 1.5);
     @include lg {
       margin-bottom: 40px;
       font-size: toRem(22);
@@ -52,10 +68,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 200px;
+  gap: 40px;
+  margin-bottom: 80px;
+  @include lg {
+    margin-bottom: 200px;
+    gap: 0px;
+  }
   h4 {
     font-weight: 600;
     text-align: center;
+    font-size: toRem(20);
+    line-height: calc(toRem(20) * 1.5);
     @include lg {
       font-size: toRem(22);
       line-height: calc(toRem(22) * 1.4);
@@ -66,6 +89,8 @@
     text-align: center;
     font-weight: 600;
     max-width: 770px;
+    font-size: toRem(20);
+    line-height: calc(toRem(20) * 1.5);
     @include lg {
       font-size: toRem(36);
       line-height: calc(36px * 1.3);
@@ -75,6 +100,12 @@
   &_grid {
     display: flex;
     margin-top: 70px;
+    flex-direction: column;
+    gap: 25px;
+    @include lg {
+      gap: 0px;
+      flex-direction: row;
+    }
 
     div:nth-child(1) {
       background-color: rgba(247, 146, 40, 0.3);
@@ -89,12 +120,21 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 40px;
-    width: 390px;
-    height: 400px;
+    height: calc(100vw - 50px);
+    width: 100%;
+    gap: 20px;
+    padding: 20px;
+    @include lg {
+      padding: 0px;
+      gap: 40px;
+      width: 390px;
+      height: 400px;
+    }
     h2 {
       font-weight: 600;
       text-align: center;
+      font-size: toRem(25);
+      line-height: calc(toRem(25) * 1.3);
       @include lg {
         font-size: toRem(36);
         line-height: calc(toRem(36) * 1.3);
@@ -103,6 +143,8 @@
     h3 {
       font-weight: 400;
       text-align: center;
+      font-size: toRem(28);
+      line-height: calc(toRem(28) * 1.3);
       @include lg {
         font-size: toRem(38);
         line-height: calc(toRem(38) * 1.2);
@@ -111,6 +153,8 @@
     p {
       font-weight: 400;
       text-align: center;
+      font-size: toRem(14);
+      line-height: calc(toRem(14) * 1.5);
       @include lg {
         font-size: toRem(18);
         line-height: calc(toRem(18) * 1.5);
@@ -122,13 +166,16 @@
 .sayGrid {
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 50px;
+  margin-bottom: 200px;
   @include lg {
-    margin-bottom: 200px;
+    gap: 100px;
   }
   h4 {
     font-weight: 600;
     color: var(--secondary);
+    font-size: toRem(20);
+    line-height: calc(toRem(20) * 1.5);
     @include lg {
       margin-bottom: 80px;
       font-size: toRem(18);
@@ -141,8 +188,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  &[data-flex="true"] {
-    flex-direction: row-reverse;
+  flex-direction: column-reverse;
+  gap: 40px;
+  @include lg {
+    gap: 0px;
+    flex-direction: row;
+    &[data-flex="true"] {
+      flex-direction: row-reverse;
+    }
   }
   &_box {
     display: flex;
@@ -188,7 +241,14 @@
 .member {
   background-image: linear-gradient(to top, #96378f, #ea2652, #f79125);
   width: 100%;
-  height: 550px;
+  height: fit-content;
+  padding-inline: 25px;
+  padding-top: 40px;
+  @include lg {
+    padding-top: 0px;
+    padding-inline: 0px;
+    height: 550px;
+  }
   &_box {
     display: flex;
     max-width: 1200px;
@@ -197,21 +257,38 @@
     height: 100%;
     align-items: flex-end;
     justify-content: space-between;
+    flex-direction: column-reverse;
+    @include lg {
+      flex-direction: row;
+    }
   }
   &_img {
     position: relative;
-    width: 385px;
     height: 485px;
-    min-width: 385px;
+    width: 100%;
+    min-height: 485px;
+    @include lg {
+      width: 385px;
+      min-width: 385px;
+    }
+    img {
+      object-fit: contain;
+      object-position: bottom;
+    }
   }
   &_content {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 30px;
     margin-bottom: 60px;
     max-width: 660px;
+    @include lg {
+      gap: 50px;
+    }
     h1 {
       font-weight: 600;
+      font-size: toRem(25);
+      line-height: calc(toRem(25) * 1.4);
       @include lg {
         font-size: toRem(38);
         line-height: calc(toRem(38) * 1.2);
@@ -219,6 +296,8 @@
     }
     h5 {
       font-weight: 500;
+      font-size: toRem(18);
+      line-height: calc(toRem(18) * 1.5);
       @include lg {
         font-size: toRem(24);
         line-height: calc(toRem(24) * 1.5);
@@ -226,6 +305,8 @@
     }
     p {
       font-weight: 400;
+      font-size: toRem(18);
+      line-height: calc(toRem(18) * 1.5);
       @include lg {
         font-size: toRem(14);
         line-height: calc(toRem(14) * 1.5);
@@ -234,14 +315,15 @@
     button {
       background-color: transparent;
       border: none;
-      display: flex;
       justify-content: center;
       align-items: center;
+      display: none;
       gap: 5px;
       color: var(--secondary);
       width: fit-content;
       cursor: pointer;
       @include lg {
+        display: flex;
         font-size: toRem(14);
         line-height: calc(toRem(14) * 1.5);
       }

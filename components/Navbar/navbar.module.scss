@@ -188,6 +188,10 @@
     top: 50%;
     height: 90vh;
     width: 1000px;
+    display: none;
+    @include lg {
+      display: block;
+    }
   }
 
   &_cover {
@@ -198,6 +202,10 @@
     margin-inline: auto;
     width: 100%;
     justify-content: center;
+    padding-inline: 25px;
+    @include lg {
+      padding-inline: 0px;
+    }
     a {
       clip-path: inset(0 0 0 0);
       width: fit-content;

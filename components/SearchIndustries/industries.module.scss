@@ -13,17 +13,21 @@
   flex-direction: column;
   max-width: 1200px;
   margin-inline: auto;
-  padding-top: 180px;
   gap: 40px;
   min-height: 100vh;
+  padding-inline: 25px;
+  padding-top: 120px;
+  @include lg {
+    padding-top: 180px;
+    padding-inline: 0px;
+  }
   h5 {
     font-weight: 600;
     text-transform: uppercase;
     color: var(--secondary);
-    @include lg {
-      font-size: toRem(20);
-      line-height: calc(toRem(20) * 1.4);
-    }
+
+    font-size: toRem(20);
+    line-height: calc(toRem(20) * 1.4);
   }
 }
 
@@ -32,7 +36,11 @@
   justify-content: center;
   gap: 25px;
   margin-bottom: 200px;
-  transform: scale(0.7);
+  flex-direction: column;
+  @include lg {
+    flex-direction: row;
+    transform: scale(0.7);
+  }
 
   @media screen and (min-width: 1500px) {
     transform: scale(0.8);
@@ -44,32 +52,48 @@
 
 .cover {
   display: flex;
-  &[data-close="true"] {
-    transform: translateX(100px);
+  flex-direction: column;
+  gap: 40px;
+  @include lg {
+    flex-direction: row;
+    &[data-close="true"] {
+      transform: translateX(100px);
+    }
   }
 }
 
 .box {
-  height: 325px;
-  width: 325px;
   background: rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   padding: 40px;
-  gap: 40px;
   position: relative;
-  &[data-change="true"] {
-    transform: translateY(300px) translateX(-100px);
-  }
-  &[data-close="true"] {
-    transform: translateX(-150px);
+  width: 100%;
+  height: 220px;
+  gap: 20px;
+  padding-top: 60px;
+  @include lg {
+    gap: 40px;
+    height: 325px;
+    width: 325px;
+
+    &[data-change="true"] {
+      transform: translateY(300px) translateX(-100px);
+    }
+    &[data-close="true"] {
+      transform: translateX(-150px);
+    }
   }
   &[data-active="true"] {
-    height: 660px;
-    width: 516px;
-    min-width: 516px;
+    height: fit-content;
+    width: 100%;
+    @include lg {
+      height: 660px;
+      width: 516px;
+      min-width: 516px;
+    }
     h4 {
       font-weight: 400;
       @include lg {
@@ -97,6 +121,8 @@
   h1 {
     font-weight: 600;
     text-align: center;
+    font-size: toRem(62);
+    line-height: calc(toRem(62) * 1.2);
     @include lg {
       font-size: toRem(100);
       line-height: calc(toRem(100) * 1.2);
@@ -113,7 +139,6 @@
   }
 
   h5 {
-    height: 40px;
     width: fit-content;
     padding-inline: 26px;
     border-radius: 3px;
@@ -126,6 +151,9 @@
     align-items: center;
     justify-content: center;
     inset: 0;
+    font-size: toRem(18);
+    height: 40px;
+    line-height: calc(toRem(18) * 1.5);
     @include lg {
       font-size: toRem(14);
       line-height: calc(toRem(14) * 1.5);

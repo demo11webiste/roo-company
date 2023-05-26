@@ -13,24 +13,33 @@
   margin-inline: auto;
   display: flex;
   flex-direction: column;
+  padding-inline: 25px;
+  @include lg {
+    padding-inline: 0px;
+  }
 }
 
 .hero {
   display: flex;
   flex-direction: column;
-  gap: 80px;
-  margin-bottom: 200px;
+  gap: 40px;
+  margin-bottom: 100px;
+  @include lg {
+    margin-bottom: 200px;
+    gap: 80px;
+  }
   h5 {
     font-weight: 600;
     text-transform: uppercase;
     color: var(--secondary);
-    @include lg {
-      font-size: toRem(20);
-      line-height: calc(toRem(20 * 1.4));
-    }
+
+    font-size: toRem(20);
+    line-height: calc(toRem(20 * 1.4));
   }
   h1 {
     font-weight: 600;
+    font-size: toRem(36);
+    line-height: calc(toRem(36) * 1.2);
     @include lg {
       font-size: toRem(48);
       line-height: calc(toRem(48) * 1.2);
@@ -52,15 +61,22 @@
 
 .mainGrid {
   display: flex;
-  gap: 200px;
-  margin-bottom: 200px;
+  flex-direction: column;
+  gap: 100px;
+  margin-bottom: 100px;
+  @include lg {
+    gap: 200px;
+    margin-bottom: 200px;
+    flex-direction: row;
+  }
 }
 
 .contentGrid {
   display: flex;
   flex-direction: column;
-  gap: 200px;
+  gap: 100px;
   @include lg {
+    gap: 200px;
     width: 50%;
   }
 }
@@ -68,11 +84,12 @@
 .cirlceGrid {
   display: flex;
   flex-direction: column;
-  gap: 180px;
   align-items: center;
   justify-content: center;
-  transform: translateY(100px);
+  gap: 100px;
   @include lg {
+    transform: translateY(100px);
+    gap: 180px;
     width: 50%;
   }
 }
@@ -83,6 +100,8 @@
   gap: 40px;
   h2 {
     font-weight: 400;
+    font-size: toRem(32);
+    line-height: calc(toRem(32) * 1.3);
     @include lg {
       font-size: toRem(38);
       line-height: calc(toRem(38) * 1.3);
@@ -90,6 +109,8 @@
   }
   p {
     font-weight: 400;
+    font-size: toRem(18);
+    line-height: calc(toRem(18) * 1.4);
     @include lg {
       font-size: toRem(24);
       line-height: calc(toRem(24) * 1.4);
@@ -101,13 +122,14 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
-  margin-top: 100px;
+  @include lg {
+    margin-top: 100px;
+  }
   p {
     font-weight: 400;
-    @include lg {
-      font-size: toRem(18);
-      line-height: calc(toRem(18) * 1.5);
-    }
+
+    font-size: toRem(18);
+    line-height: calc(toRem(18) * 1.5);
   }
 }
 
@@ -116,10 +138,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 400px;
-  width: 400px;
   gap: 30px;
   position: relative;
+  width: 100%;
+  height: calc(100vw - 50px);
+  @include lg {
+    height: 400px;
+    width: 400px;
+  }
   div {
     position: absolute;
     height: 100%;
@@ -130,6 +156,8 @@
   }
   h2 {
     font-weight: 600;
+    font-size: toRem(100);
+    line-height: calc(toRem(100) * 1.2);
     @include lg {
       font-size: toRem(150);
       line-height: calc(toRem(150) * 1.2);
@@ -137,6 +165,8 @@
   }
   h3 {
     font-weight: 400;
+    font-size: toRem(32);
+    line-height: calc(toRem(32) * 1.2);
     @include lg {
       font-size: toRem(38);
       line-height: calc(toRem(38) * 1.2);
@@ -146,9 +176,14 @@
 
 .bottom {
   background-color: #c01040;
-  height: 680px;
   display: flex;
   align-items: center;
+  height: fit-content;
+  padding: 50px 25px;
+  @include lg {
+    height: 680px;
+    padding: 0px;
+  }
 
   &_box {
     display: flex;
@@ -156,6 +191,10 @@
     max-width: 1200px;
     margin-inline: auto;
     align-items: center;
+    flex-direction: column;
+    @include lg {
+      flex-direction: row;
+    }
   }
 
   &_img {
@@ -195,18 +234,18 @@
     h5 {
       font-weight: 400;
       color: var(--secondary);
+
+      font-size: toRem(20);
+      line-height: calc(toRem(20) * 1.5);
       @include lg {
-        font-size: toRem(20);
-        line-height: calc(toRem(20) * 1.5);
         margin-bottom: 30px;
       }
     }
     p {
       font-weight: 400;
-      @include lg {
-        font-size: toRem(16);
-        line-height: calc(toRem(16) * 1.5);
-      }
+
+      font-size: toRem(16);
+      line-height: calc(toRem(16) * 1.5);
     }
     div {
       display: flex;
@@ -214,13 +253,14 @@
       gap: 30px;
       h4 {
         font-weight: 500;
-        @include lg {
-          font-size: toRem(20);
-          line-height: calc(toRem(20) * 1.5);
-        }
+
+        font-size: toRem(20);
+        line-height: calc(toRem(20) * 1.5);
       }
       h1 {
         font-weight: 400;
+        font-size: toRem(42);
+        line-height: calc(toRem(42) * 1.2);
         @include lg {
           font-size: toRem(46);
           line-height: calc(toRem(46) * 1.2);

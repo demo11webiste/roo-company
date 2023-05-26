@@ -16,21 +16,30 @@
   padding-top: 180px;
   gap: 40px;
   min-height: 100vh;
+  padding-inline: 25px;
+  @include lg {
+    padding-inline: 0px;
+  }
   h5 {
     font-weight: 600;
     text-transform: uppercase;
     color: var(--secondary);
-    @include lg {
-      font-size: toRem(20);
-      line-height: calc(toRem(20) * 1.4);
-    }
+
+    font-size: toRem(20);
+    line-height: calc(toRem(20) * 1.4);
   }
 }
 
 .cover {
   display: flex;
-  &[data-close="true"] {
-    transform: translateX(100px);
+  flex-direction: column;
+  gap: 40px;
+  @include lg {
+    gap: 0px;
+    flex-direction: row;
+    &[data-close="true"] {
+      transform: translateX(100px);
+    }
   }
 }
 
@@ -38,8 +47,12 @@
   display: flex;
   justify-content: center;
   gap: 25px;
+  flex-direction: column;
   margin-bottom: 200px;
-  transform: scale(0.7);
+  @include lg {
+    transform: scale(0.7);
+    flex-direction: row;
+  }
 
   @media screen and (min-width: 1500px) {
     transform: scale(0.8);
@@ -50,8 +63,8 @@
 }
 
 .box {
-  height: 325px;
-  width: 325px;
+  width: 100%;
+  height: 240px;
   background: rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
@@ -60,6 +73,10 @@
   padding: 40px;
   gap: 40px;
   position: relative;
+  @include lg {
+    height: 325px;
+    width: 325px;
+  }
   &_detail {
     display: flex;
     flex-direction: column;
@@ -70,7 +87,7 @@
     }
   }
   h5 {
-    height: 40px;
+    height: 50px;
     width: fit-content;
     padding-inline: 26px;
     border-radius: 3px;
@@ -84,7 +101,10 @@
     justify-content: center;
     inset: 0;
     text-transform: uppercase;
+    font-size: toRem(18);
+    line-height: calc(toRem(18) * 1.5);
     @include lg {
+      height: 40px;
       font-size: toRem(14);
       line-height: calc(toRem(14) * 1.5);
     }
@@ -101,16 +121,21 @@
       object-fit: contain;
     }
   }
-  &[data-change="true"] {
-    transform: translateY(300px) translateX(-100px);
-  }
-  &[data-close="true"] {
-    transform: translateX(-150px);
+  @include lg {
+    &[data-change="true"] {
+      transform: translateY(300px) translateX(-100px);
+    }
+    &[data-close="true"] {
+      transform: translateX(-150px);
+    }
   }
   &[data-active="true"] {
-    height: 660px;
-    width: 516px;
-    min-width: 516px;
+    height: fit-content;
+    @include lg {
+      height: 660px;
+      min-width: 516px;
+      width: 516px;
+    }
     h4 {
       font-weight: 400;
       @include lg {
@@ -118,19 +143,19 @@
         line-height: calc(toRem(22) * 1.4);
       }
     }
-    button {
-      height: 45px;
-      width: 125px;
-      background-color: transparent;
-      border: 1px solid var(--secondary);
-      border-radius: 5px;
-      font-size: toRem(14);
-      line-height: calc(toRem(14) * 1.5);
-      color: var(--secondary);
-      font-weight: 500;
-      align-self: flex-start;
-      cursor: pointer;
-    }
+  }
+  button {
+    height: 45px;
+    width: 125px;
+    background-color: transparent;
+    border: 1px solid var(--secondary);
+    border-radius: 5px;
+    font-size: toRem(14);
+    line-height: calc(toRem(14) * 1.5);
+    color: var(--secondary);
+    font-weight: 500;
+    align-self: flex-start;
+    cursor: pointer;
   }
   @include lg {
     min-width: 325px;
