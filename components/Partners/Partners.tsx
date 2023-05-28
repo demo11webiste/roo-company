@@ -3,7 +3,7 @@ import s from "./partners.module.scss";
 import Button from "../Button/Button";
 import { useEffect, useRef, useState } from "react";
 import useGsapContext from "@/hooks/useGsapContext";
-import { gsap } from "gsap";
+import { Power2, Power4, gsap } from "gsap";
 import { useRouter } from "next/router";
 import { store } from "@/store";
 
@@ -28,6 +28,12 @@ const Partners = () => {
       gsap
         .timeline()
         .from(".logo", { scale: 0 })
+        .to(".logo", {
+          y: -60,
+          duration: 1.5,
+          repeat: -1,
+          yoyo: true,
+        })
         .from(".shadow", { opacity: 0 }, "<")
         .from(".content", { opacity: 0 })
         .from(".heading-1", { opacity: 0 })

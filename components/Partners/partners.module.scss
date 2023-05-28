@@ -92,12 +92,26 @@
   z-index: 3;
   width: 250px;
   height: 250px;
+  // animation: 3500ms ease 0s infinite normal forwards running floating_special;
+
   @include lg {
     top: 50%;
     height: 500px;
     width: 500px;
   }
 }
+
+// @keyframes floating_special {
+//   0% {
+//     transform: translateY(-50%) translateX(-50%);
+//   }
+//   50% {
+//     transform: translateY(-42%) translateX(-50%);
+//   }
+//   100% {
+//     transform: translateY(-50%) translateX(-50%);
+//   }
+// }
 
 .mobileContent {
   pointer-events: none;
