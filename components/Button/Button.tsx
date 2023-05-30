@@ -2,11 +2,11 @@ import s from "./button.module.scss";
 
 const Button = ({
   children,
-  className,
+  className = "btn",
   handleClick,
 }: {
   children: string;
-  className?: string;
+  className: string;
   handleClick?: () => void;
 }) => {
   return (

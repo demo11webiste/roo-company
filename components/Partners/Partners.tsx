@@ -41,6 +41,7 @@ const Partners = () => {
 
       const tl = gsap
         .timeline()
+        .set(".pinkSide", { zIndex: 1 })
         .set(".purpleSide", { zIndex: 2 })
         .to(".content", { opacity: 0 })
         .from(
@@ -59,6 +60,7 @@ const Partners = () => {
 
       const tltwo = gsap
         .timeline()
+        .set(".purpleSide", { zIndex: 1 })
         .set(".pinkSide", { zIndex: 2 })
         .to(".content", { opacity: 0 })
         .from(

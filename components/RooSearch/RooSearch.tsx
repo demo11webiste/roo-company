@@ -2,44 +2,64 @@ import Image from "next/image";
 import { circleData, contentData } from "./data";
 import s from "./search.module.scss";
 import { IoIosArrowDown } from "react-icons/io";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { store } from "@/store";
 import Footer from "../Footer/Footer";
+import useGsapContext from "@/hooks/useGsapContext";
+import useLayout from "@/hooks/useLayout";
+import { animation } from "./animation";
+import SplitType from "split-type";
 
 const RooSearch = () => {
+  //references
+  const root = useRef<HTMLElement>(null);
+
+  const ctx = useGsapContext(root);
+
+  useLayout(() => {
+    const mainHeading = SplitType.create("#main-heading");
+    const contentHeading = SplitType.create("#content-head-heading");
+
+    const heading = { mainHeading, contentHeading };
+
+    ctx.add(() => animation(heading));
+
+    return () => ctx.revert();
+  });
+
   useEffect(() => {
     store.NavbarLogoSwitch = "search";
   }, []);
   return (
     <>
-      <section className={s.main}>
+      <section ref={root} className={s.main}>
         <div className={s.container}>
           <div className={s.hero}>
-            <h1>
+            <h1 id="main-heading">
               We help businesses thrive at every stage of growth by finding
               great leaders.
             </h1>
-            <IoIosArrowDown />
+            <IoIosArrowDown className="icon" />
           </div>
 
           <div className={s.grid}>
             <div className={s.contentGrid}>
-              <div className={s.head}>
-                <h2>
+              <div className={`${s.head} content-head`}>
+                <h2 id="content-head-heading">
                   The right talent will keep your organization moving forward
                   and running at peak performance.
                 </h2>
-                <p>
+                <p className="content-head-para">
                   Our insight and operator experience builds businesses by
                   industry expertise, and talent management.
                 </p>
-                <button>Read More</button>
+                <button className="content-head-button">Read More</button>
               </div>
               {contentData.map(({ desc, title }, i) => {
                 return (
-                  <div key={i} className={s.content}>
-                    <h3>{title}</h3>
-                    <p>{desc}</p>
+                  <div key={i} className={`${s.content} content-box-${i}`}>
+                    <h3 className={`content-box-heading-${i}`}>{title}</h3>
+                    <p className={`content-box-para-${i}`}>{desc}</p>
                   </div>
                 );
               })}
@@ -47,10 +67,10 @@ const RooSearch = () => {
             <div className={s.circleGrid}>
               {circleData.map(({ desc, title }, i) => {
                 return (
-                  <div key={i} className={s.circle}>
-                    <div />
-                    <h1>{title}</h1>
-                    <p>{desc}</p>
+                  <div key={i} className={`${s.circle} circle-${i}`}>
+                    <div className={`border-${i}`} />
+                    <h1 className={`circle-content-${i}`}>{title}</h1>
+                    <p className={`circle-content-${i}`}>{desc}</p>
                   </div>
                 );
               })}
