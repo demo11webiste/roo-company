@@ -205,12 +205,36 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url("/border.png");
-  clip-path: circle(200% at 0 0);
+  // background: url("/border.png");
+  // clip-path: circle(200% at 0 0);
   background-size: contain;
+  position: relative;
   @include lg {
     height: 400px;
     width: 400px;
+  }
+
+  svg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    inset: 0;
+    circle {
+      r: 117;
+      stroke: url("#linear");
+      fill: transparent;
+      cx: 125;
+      cy: 125;
+      stroke-dasharray: 1200, 1200;
+      stroke-dashoffset: 1200;
+      stroke-width: 8px;
+      @include lg {
+        stroke-width: 10px;
+        r: 190;
+        cx: 200;
+        cy: 200;
+      }
+    }
   }
 }
 
@@ -320,24 +344,58 @@
     margin-inline: auto;
     max-width: 1200px;
     width: 100%;
+    transition: 0.3s all;
+    transform-origin: left;
+    &:hover {
+      transform: scale(1.05);
+      filter: brightness(1.2);
+    }
   }
   &_circle {
     height: 250px;
     width: 250px;
     border-radius: 999px;
-    border: 7.6px solid var(--secondary);
+    // border: 7.6px solid var(--secondary);
     display: flex;
     align-items: center;
     justify-content: center;
     margin: auto;
+    position: relative;
     @include lg {
       height: 310px;
       width: 310px;
     }
+
+    svg {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      inset: 0;
+      circle {
+        r: 115;
+        cx: 125;
+        cy: 125;
+        stroke-width: 10;
+        stroke: var(--secondary);
+        fill: transparent;
+        stroke-dasharray: 1000, 1000;
+        stroke-dashoffset: 1000;
+        @include lg {
+          r: 145;
+          cx: 155;
+          cy: 155;
+        }
+      }
+    }
+
     &_logo {
       position: relative;
       width: 180px;
       height: 180px;
+      transition: 0.3s all var(--custom-ease-out);
+      &:hover {
+        transform: scale(1.2);
+      }
       img {
         object-fit: contain;
       }

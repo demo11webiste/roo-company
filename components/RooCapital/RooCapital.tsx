@@ -9,6 +9,9 @@ import useGsapContext from "@/hooks/useGsapContext";
 import useLayout from "@/hooks/useLayout";
 import SplitType from "split-type";
 import { animation } from "./animation";
+import RollOverButton from "../RollOverButton/RollOverButton";
+import SvgGradient from "../SvgGradient/SvgGradient";
+import Link from "next/link";
 
 const RooCapital = () => {
   useEffect(() => {
@@ -78,7 +81,11 @@ const RooCapital = () => {
           <div className={`${s.gridCircle} circle`}>
             {circleData.map(({ desc, heading }, i) => {
               return (
-                <div key={i} className={`${s.circleRadius} border-${i}`}>
+                <div key={i} className={s.circleRadius}>
+                  <svg>
+                    <SvgGradient />
+                    <circle className={`border-${i}`} />
+                  </svg>
                   <div className={`${s.circle} circle-content-${i} `}>
                     <h1 dangerouslySetInnerHTML={{ __html: heading }} />
                     <p>{desc}</p>
@@ -98,9 +105,12 @@ const RooCapital = () => {
                 the optimal resources to transformative companies. Everything we
                 do is oriented toward making your firm run at peak performance.
               </p>
-              <button className={`${s.btn} content-box-button`}>
+              <div className="content-box-button">
+                <RollOverButton>Learn More</RollOverButton>
+              </div>
+              {/* <button className={`${s.btn} content-box-button`}>
                 Learn More
-              </button>
+              </button> */}
             </div>
             {cardData.map(({ desc, heading }, i) => {
               return (
@@ -112,10 +122,15 @@ const RooCapital = () => {
             })}
           </div>
         </div>
-        <div className={s.spotlight}>
-          <h2>PORTFOLIO SPOTLIGHT</h2>
+        <div className={`${s.spotlight} spotlight`}>
+          <Link href="/roo-capital-portfolio">
+            <h2>PORTFOLIO SPOTLIGHT</h2>
+          </Link>
           <div className={s.spotlightControl}>
             <div className={s.spotlight_circle}>
+              <svg>
+                <circle className="spotlight-border" />
+              </svg>
               <div className={s.spotlight_circle_logo}>
                 <Image fill src="/florence-logo.png" alt="logo" />
               </div>
@@ -131,9 +146,9 @@ const RooCapital = () => {
                 staff, manage, and train post-acute and long-term care temporary
                 healthcare workers.
               </p>
-              <button className={`${s.btn} content-box-button`}>
-                Read More
-              </button>
+              <div>
+                <RollOverButton>Read More</RollOverButton>
+              </div>
             </div>
           </div>
         </div>

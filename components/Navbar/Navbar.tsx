@@ -66,7 +66,7 @@ const Navbar = () => {
   return (
     <header ref={root}>
       <nav className={s.main}>
-        <div className={s.logo}>
+        <div data-active={isMenuShow} className={s.logo}>
           {NavbarLogoSwitch === "partner" ? (
             <Image src="/roo-partners-logo.png" alt="roo-capital" fill />
           ) : NavbarLogoSwitch === "search" ? (

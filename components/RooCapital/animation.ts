@@ -15,7 +15,15 @@ export const animation = (heading: AnimationType) => {
 
   //icon
 
-  gsap.to(".icon", { y: -30, repeat: -1, yoyo: true, duration: 0.6 });
+  gsap.to(".icon", {
+    y: -30,
+    color: "rgb(247, 146, 40)",
+    border: "1px solid rgb(247, 146, 40)",
+    repeat: -1,
+    yoyo: true,
+    duration: 0.6,
+    delay: 2,
+  });
 
   // hero animation
 
@@ -34,8 +42,10 @@ export const animation = (heading: AnimationType) => {
       scrollTrigger: {
         trigger: ".feature",
         start: "top center",
+        markers: false,
       },
     })
+    .to(".icon", { opacity: 0, duration: 0.3 })
     .from(heading.featureHeading.lines, {
       y: 150,
       stagger: 0.2,
@@ -44,7 +54,7 @@ export const animation = (heading: AnimationType) => {
       clipPath: "inset(0 0 100% 0)",
       duration: 1,
     })
-    .from(".feature-box", { opacity: 0, duration: 1 })
+    .from(".feature-box", { opacity: 0, duration: 0.6 }, "<0.5")
     .from(".feature-heading", {
       opacity: 0,
       stagger: 0.2,
@@ -60,13 +70,10 @@ export const animation = (heading: AnimationType) => {
         markers: false,
         start: "top+=200 center",
       },
-      defaults: {
-        duration: 2,
-      },
     })
-    .from(".border-0", {
-      clipPath: "circle(0% at 0 0)",
-      duration: 2,
+    .to(".border-0", {
+      strokeDashoffset: 0,
+      duration: 1,
     })
     .from(
       heading.contentHeading.lines,
@@ -121,8 +128,9 @@ export const animation = (heading: AnimationType) => {
           duration: 2,
         },
       })
-      .from(".border-1", {
-        clipPath: "circle(0% at 0 0)",
+      .to(".border-1", {
+        strokeDashoffset: 0,
+        duration: 1,
       })
       .from(".circle-content-1", { opacity: 0 }, "<0.2")
       .from(".card-heading-0", { opacity: 0 }, "<0.4")
@@ -136,9 +144,9 @@ export const animation = (heading: AnimationType) => {
           start: "top center",
         },
       })
-      .from(".border-2", {
-        clipPath: "circle(0% at 0 0)",
-        duration: 2,
+      .to(".border-2", {
+        strokeDashoffset: 0,
+        duration: 1,
       })
       .from(".circle-content-2", { opacity: 0 }, "<0.2")
       .from(".card-heading-1", { opacity: 0 }, "<0.4")
@@ -154,9 +162,9 @@ export const animation = (heading: AnimationType) => {
           markers: false,
         },
       })
-      .from(".border-1", {
-        clipPath: "circle(0% at 0 0)",
-        duration: 2,
+      .to(".border-1", {
+        strokeDashoffset: 0,
+        duration: 1,
       })
       .from(".circle-content-1", { opacity: 0 }, "<0.2");
     gsap
@@ -167,9 +175,9 @@ export const animation = (heading: AnimationType) => {
           markers: false,
         },
       })
-      .from(".border-2", {
-        clipPath: "circle(0% at 0 0)",
-        duration: 2,
+      .to(".border-2", {
+        strokeDashoffset: 0,
+        duration: 1,
       })
       .from(".circle-content-2", { opacity: 0 }, "<0.2");
 
@@ -194,4 +202,15 @@ export const animation = (heading: AnimationType) => {
       .from(".card-heading-0", { opacity: 0 })
       .from(".card-para-0", { opacity: 0 }, "<0.3");
   }
+
+  //spotlight animation
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: ".spotlight",
+        markers: false,
+        start: "top top",
+      },
+    })
+    .to(".spotlight-border", { strokeDashoffset: 0 });
 };
