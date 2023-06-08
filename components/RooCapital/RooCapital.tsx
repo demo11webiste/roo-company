@@ -12,8 +12,11 @@ import { animation } from "./animation";
 import RollOverButton from "../RollOverButton/RollOverButton";
 import SvgGradient from "../SvgGradient/SvgGradient";
 import Link from "next/link";
+import { useScrollTo } from "react-use-window-scroll";
 
 const RooCapital = () => {
+  const scrollTo = useScrollTo();
+
   useEffect(() => {
     store.NavbarLogoSwitch = "capital";
   }, []);
@@ -41,7 +44,12 @@ const RooCapital = () => {
             We grow businesses by providing capital, talent and industry
             expertise.
           </h1>
-          <div className={`icon ${s.icon}`}>
+          <div
+            onClick={() =>
+              scrollTo({ top: window.innerHeight - 100, behavior: "smooth" })
+            }
+            className={`icon ${s.icon}`}
+          >
             <IoIosArrowDown />
           </div>
         </div>
