@@ -209,7 +209,7 @@ export const animation = (heading: AnimationType) => {
       scrollTrigger: {
         trigger: ".spotlight",
         markers: false,
-        start: "top top",
+        start: "top center",
       },
     })
     .to(".spotlight-border", { strokeDashoffset: 0 });
