@@ -9,6 +9,8 @@ import useGsapContext from "@/hooks/useGsapContext";
 import useLayout from "@/hooks/useLayout";
 import { animation } from "./animation";
 import SplitType from "split-type";
+import SvgGradient from "../SvgGradient/SvgGradient";
+import RollOverButton from "../RollOverButton/RollOverButton";
 
 const RooSearch = () => {
   //references
@@ -53,7 +55,9 @@ const RooSearch = () => {
                   Our insight and operator experience builds businesses by
                   industry expertise, and talent management.
                 </p>
-                <button className="content-head-button">Read More</button>
+                <div className="content-head-button">
+                  <RollOverButton>Read More</RollOverButton>
+                </div>
               </div>
               {contentData.map(({ desc, title }, i) => {
                 return (
@@ -68,7 +72,10 @@ const RooSearch = () => {
               {circleData.map(({ desc, title }, i) => {
                 return (
                   <div key={i} className={`${s.circle} circle-${i}`}>
-                    <div className={`border-${i}`} />
+                    <svg>
+                      <SvgGradient />
+                      <circle className={`border-${i}`} />
+                    </svg>
                     <h1 className={`circle-content-${i}`}>{title}</h1>
                     <p className={`circle-content-${i}`}>{desc}</p>
                   </div>
@@ -136,6 +143,7 @@ const RooSearch = () => {
           </div>
         </div>
       </section>
+
       <Footer />
     </>
   );

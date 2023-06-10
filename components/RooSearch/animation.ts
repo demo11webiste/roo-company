@@ -42,8 +42,9 @@ export const animation = (heading: Heading) => {
           duration: 2,
         },
       })
-      .from(".border-0", {
-        clipPath: "circle(0% at 0 0)",
+      .to(`.border-0`, {
+        strokeDashoffset: 0,
+        duration: 1,
       })
       .from(
         heading.contentHeading.lines,
@@ -75,8 +76,9 @@ export const animation = (heading: Heading) => {
             duration: 2,
           },
         })
-        .from(`.border-${i + 1}`, {
-          clipPath: "circle(0% at 0 0)",
+        .to(`.border-${i + 1}`, {
+          strokeDashoffset: 0,
+          duration: 1,
         })
         .from(`.circle-content-${i + 1}`, { opacity: 0 }, "<0.3")
         .from(`.content-box-heading-${i}`, { opacity: 0 }, "<0.4")
@@ -158,8 +160,9 @@ export const animation = (heading: Heading) => {
             duration: 2,
           },
         })
-        .from(`.border-${i}`, {
-          clipPath: "circle(0% at 0 0)",
+        .to(`.border-${i + 1}`, {
+          strokeDashoffset: 0,
+          duration: 1,
         })
         .from(`.circle-content-${i}`, { opacity: 0 }, "<0.3");
     }

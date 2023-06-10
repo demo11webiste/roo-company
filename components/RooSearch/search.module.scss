@@ -96,16 +96,16 @@
     }
   }
 
-  button {
-    border: 1px solid var(--secondary);
-    background: transparent;
-    color: var(--secondary);
-    width: 125px;
-    border-radius: 5px;
-    height: 45px;
-    font-size: toRem(14);
-    line-height: calc(toRem(14) * 1.5);
-  }
+  // button {
+  //   border: 1px solid var(--secondary);
+  //   background: transparent;
+  //   color: var(--secondary);
+  //   width: 125px;
+  //   border-radius: 5px;
+  //   height: 45px;
+  //   font-size: toRem(14);
+  //   line-height: calc(toRem(14) * 1.5);
+  // }
 }
 
 .contentGrid {
@@ -160,20 +160,43 @@
   align-items: center;
   justify-content: center;
 
+  svg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    inset: 0;
+    circle {
+      r: 117;
+      stroke: url("#linear");
+      fill: transparent;
+      cx: 125;
+      cy: 125;
+      stroke-dasharray: 1200, 1200;
+      stroke-dashoffset: 1200;
+      stroke-width: 8px;
+      @include lg {
+        stroke-width: 10px;
+        r: 190;
+        cx: 200;
+        cy: 200;
+      }
+    }
+  }
+
   @include lg {
     height: 400px;
     width: 400px;
   }
 
-  div {
-    clip-path: circle(200% at 0 0);
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    background-image: url("/border.png");
-    background-size: contain;
-    background-position: center;
-  }
+  // div {
+  //   clip-path: circle(200% at 0 0);
+  //   height: 100%;
+  //   width: 100%;
+  //   position: absolute;
+  //   background-image: url("/border.png");
+  //   background-size: contain;
+  //   background-position: center;
+  // }
   h1 {
     font-weight: 600;
     font-size: toRem(62);
@@ -343,19 +366,19 @@
         line-height: calc(toRem(16) * 1.4);
       }
     }
-    button {
-      cursor: pointer;
-      height: 45px;
-      width: 125px;
-      background-color: transparent;
-      border: 1px solid var(--secondary);
-      border-radius: 5px;
-      font-size: toRem(14);
-      line-height: calc(toRem(14) * 1.5);
-      color: var(--secondary);
-      font-weight: 500;
-      align-self: flex-start;
-    }
+    // button {
+    //   cursor: pointer;
+    //   height: 45px;
+    //   width: 125px;
+    //   background-color: transparent;
+    //   border: 1px solid var(--secondary);
+    //   border-radius: 5px;
+    //   font-size: toRem(14);
+    //   line-height: calc(toRem(14) * 1.5);
+    //   color: var(--secondary);
+    //   font-weight: 500;
+    //   align-self: flex-start;
+    // }
   }
   @include lg {
     min-width: 325px;
