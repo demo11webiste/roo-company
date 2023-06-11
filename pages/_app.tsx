@@ -1,3 +1,4 @@
+import "@fontsource/raleway/200.css";
 import "@fontsource/raleway/400.css";
 import "@fontsource/raleway/500.css";
 import "@fontsource/raleway/600.css";

@@ -1,4 +1,4 @@
-import SearchTeam from "@/components/SearchTeam/SearchTeam";
+import Team from "@/components/Team/Team";
 import Head from "next/head";
 
 const RooCapitalTeam = () => {
@@ -10,7 +10,7 @@ const RooCapitalTeam = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <SearchTeam bgChange />
+      <Team bgChange />
     </>
   );
 };
