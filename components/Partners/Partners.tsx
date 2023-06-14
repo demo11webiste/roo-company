@@ -261,9 +261,9 @@ const Partners = () => {
       </div>
       <div className={s.footer}>
         <div>
-          <p>&copy; ROO PARTNERS, INC. - ALL RIGHT RESERVED</p>
+          <p>&copy; 2023 Roo Partners, Inc. – ALL RIGHTS RESERVED</p>
           <p>
-            3250 MARY STREET | SUITE 500A | COCONUT GROVE, FL 33133 | +1
+            3250 Mary Street | Suite 500A | Coconut Grove, FL 33133 | +1
             786-322-4859
           </p>
         </div>

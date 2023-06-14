@@ -156,18 +156,21 @@
 .centerContent {
   position: absolute;
   height: fit-content;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(-50%);
   left: 50%;
   z-index: 3;
   display: flex;
   flex-direction: column;
   gap: 25px;
-  bottom: 80px;
   width: 100%;
   padding-inline: 25px;
+  top: calc(50% + 200px);
   @include lg {
     padding-inline: 0px;
     width: 600px;
+  }
+  @media screen and (min-width: 1400px) {
+    top: calc(50% + 300px);
   }
   h1 {
     font-size: 25px;
@@ -195,29 +198,22 @@
   position: absolute;
   border-radius: 50%;
   background-color: var(--dark);
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(-50%);
   left: 50%;
   z-index: 3;
-  filter: blur(15px);
-  opacity: 0.5;
-  height: 20px;
+  filter: blur(20px);
+  opacity: 0.3;
+  height: 15px;
   width: 150px;
-  bottom: 30%;
+  top: calc(50% + 200px);
   @include lg {
-    bottom: 20%;
     height: 30px;
     width: 200px;
-  }
-  @media screen and (min-width: 1500px) {
-    bottom: 25%;
-  }
-  @media screen and (min-width: 1920px) {
-    bottom: 30%;
   }
 }
 
 .footer {
-  height: 60px;
+  height: fit-content;
   background-color: var(--gray);
   color: var(--light);
   display: flex;
@@ -228,18 +224,31 @@
   width: 100%;
   align-items: center;
   padding-inline: 20px;
+  padding-block: 15px;
+  @include lg {
+    padding-block: 0px;
+    height: 65px;
+  }
+
   div {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
     width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    @include lg {
+      flex-direction: row;
+    }
     p {
+      text-transform: uppercase;
       color: #818384;
-      font-size: 14px;
-      line-height: calc(14px * 1.5);
-      font-weight: 600;
+      font-size: 12px;
+      line-height: calc(12px * 1.5);
+      font-weight: 400;
       text-align: center;
+      font-family: "Roboto", sans-serif;
     }
   }
 }

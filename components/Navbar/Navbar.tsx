@@ -17,6 +17,9 @@ const Navbar = () => {
   const ctx = useGsapContext(root);
 
   const [isMenuShow, setIsMenuShow] = useState<boolean>(false);
+  const [isAllActive, setIsAllActive] = useState<boolean>(true);
+  const [isActive, setIsActive] = useState<number>(0);
+
   const [tl, setTl] = useState<GSAPTimeline>();
   const [capitalTl, setCapitalTl] = useState<GSAPTimeline>();
 
@@ -26,6 +29,11 @@ const Navbar = () => {
 
   const handleClose = () => {
     setIsMenuShow(false);
+  };
+
+  const handlePointerEnter = (id: number) => {
+    setIsAllActive(false);
+    setIsActive(id);
   };
 
   useEffect(() => {
@@ -48,7 +56,8 @@ const Navbar = () => {
         .set(".menu-capital", { zIndex: 5 })
         .from(".menu-capital", { opacity: 0 })
         .from(".capital-logo", { xPercent: -250 })
-        .from(".capital-link", { clipPath: "inset(0 100% 0 0)" }, "<0.2");
+        .from(".capital-link", { clipPath: "inset(0 100% 0 0)" }, "<0.2")
+        .set(".capital-link", { transition: "0.3s all ease" });
       setCapitalTl(tlCapital);
     });
 
@@ -70,9 +79,13 @@ const Navbar = () => {
           {NavbarLogoSwitch === "partner" ? (
             <Image src="/roo-partners-logo.png" alt="roo-capital" fill />
           ) : NavbarLogoSwitch === "search" ? (
-            <Image src="/roo-search-logo.png" alt="roo-capital" fill />
+            <Link href="/roo-search">
+              <Image src="/roo-search-logo.png" alt="roo-capital" fill />
+            </Link>
           ) : (
-            <Image src="/roo-capital-logo.png" alt="roo-capital" fill />
+            <Link href="/roo-capital">
+              <Image src="/roo-capital-logo.png" alt="roo-capital" fill />
+            </Link>
           )}
         </div>
         <button
@@ -93,7 +106,10 @@ const Navbar = () => {
         <div className={`${s.menuCapital_logo} capital-logo`} />
         <div className={s.menuCapital_cover}>
           <Link
+            onPointerEnter={() => handlePointerEnter(0)}
+            onPointerLeave={() => setIsAllActive(true)}
             onClick={handleClose}
+            data-active={isAllActive ? true : isActive === 0}
             className="capital-link"
             href={
               NavbarLogoSwitch === "search"
@@ -104,7 +120,10 @@ const Navbar = () => {
             About
           </Link>
           <Link
+            onPointerEnter={() => handlePointerEnter(1)}
+            onPointerLeave={() => setIsAllActive(true)}
             onClick={handleClose}
+            data-active={isAllActive ? true : isActive === 1}
             className="capital-link"
             href={
               NavbarLogoSwitch === "search"
@@ -115,7 +134,10 @@ const Navbar = () => {
             {NavbarLogoSwitch === "search" ? "Industries" : "Portfolio"}
           </Link>
           <Link
+            onPointerEnter={() => handlePointerEnter(2)}
+            onPointerLeave={() => setIsAllActive(true)}
             onClick={handleClose}
+            data-active={isAllActive ? true : isActive === 2}
             className="capital-link"
             href={
               NavbarLogoSwitch === "search"
@@ -126,7 +148,10 @@ const Navbar = () => {
             Team
           </Link>
           <Link
+            onPointerEnter={() => handlePointerEnter(3)}
+            onPointerLeave={() => setIsAllActive(true)}
             onClick={handleClose}
+            data-active={isAllActive ? true : isActive === 3}
             className="capital-link"
             href={
               NavbarLogoSwitch === "search"
@@ -146,13 +171,17 @@ const Navbar = () => {
             Roo Partners is a unique venture capital and executive search firm
             bridging talent and capital.
           </h3>
-          <h1>Roo Capital</h1>
+          <Link data-color onClick={handleClose} href="/roo-capital">
+            Roo Capital
+          </Link>
           <p>
             VENTURE CAPITAL: Roo Capital supports key initiatives of early-stage
             businesses, by providing the capital for pre-seed, seed, Series A
             and Series B stage growth.
           </p>
-          <h1>Roo Search</h1>
+          <Link onClick={handleClose} href="/roo-search">
+            Roo Search
+          </Link>
           <p>
             EXECUTIVE SEARCH: Roo Search understands that the right candidate
             should not only have the right experience, but should fit the firm’s
