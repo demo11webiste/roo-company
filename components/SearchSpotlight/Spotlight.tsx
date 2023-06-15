@@ -101,7 +101,7 @@ const Spotlight: React.FC<Props> = ({ bgChange }) => {
           </div>
         </section>
       </div>
-      <Footer />
+      <Footer isCapital={bgChange} />
     </>
   );
 };

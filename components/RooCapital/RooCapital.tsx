@@ -114,7 +114,9 @@ const RooCapital = () => {
                 do is oriented toward making your firm run at peak performance.
               </p>
               <div className="content-box-button">
-                <RollOverButton>Learn More</RollOverButton>
+                <RollOverButton href="/roo-capital-about">
+                  Learn More
+                </RollOverButton>
               </div>
               {/* <button className={`${s.btn} content-box-button`}>
                 Learn More
@@ -140,7 +142,9 @@ const RooCapital = () => {
                 <circle className="spotlight-border" />
               </svg>
               <div className={s.spotlight_circle_logo}>
-                <Image fill src="/florence-logo.png" alt="logo" />
+                <Link href="/roo-capital-portfolio/florence">
+                  <Image fill src="/florence-logo.png" alt="logo" />
+                </Link>
               </div>
             </div>
             <div className={s.spotlightContent}>
@@ -155,13 +159,15 @@ const RooCapital = () => {
                 healthcare workers.
               </p>
               <div>
-                <RollOverButton>Read More</RollOverButton>
+                <RollOverButton href="/roo-capital-portfolio/florence">
+                  Read More
+                </RollOverButton>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <Footer />
+      <Footer isCapital />
     </>
   );
 };

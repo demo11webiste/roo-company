@@ -144,7 +144,7 @@ const RooSearch = () => {
         </div>
       </section>
 
-      <Footer />
+      <Footer isCapital={false} />
     </>
   );
 };

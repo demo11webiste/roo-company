@@ -41,7 +41,7 @@ export const animation = (heading: AnimationType) => {
     .timeline({
       scrollTrigger: {
         trigger: ".feature",
-        start: "top center",
+        start: "top 80%",
         markers: false,
       },
     })
@@ -68,7 +68,7 @@ export const animation = (heading: AnimationType) => {
       scrollTrigger: {
         trigger: ".content-box",
         markers: false,
-        start: "top+=200 center",
+        start: "top+=200 80%",
       },
     })
     .to(".border-0", {
@@ -122,7 +122,7 @@ export const animation = (heading: AnimationType) => {
         scrollTrigger: {
           trigger: ".card-box-0",
           markers: false,
-          start: "top center",
+          start: "top 80%",
         },
         defaults: {
           duration: 2,

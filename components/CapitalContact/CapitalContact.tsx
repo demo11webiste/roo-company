@@ -90,7 +90,7 @@ const CapitalContact: React.FC<Props> = ({ condition }) => {
           </div>
         </div>
       </section>
-      <Footer />
+      <Footer isCapital={condition ? false : true} />
     </>
   );
 };

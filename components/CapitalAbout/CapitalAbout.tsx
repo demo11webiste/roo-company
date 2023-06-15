@@ -123,7 +123,7 @@ const CapitalAbout = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      <Footer isCapital />
     </>
   );
 };

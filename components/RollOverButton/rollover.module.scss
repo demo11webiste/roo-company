@@ -16,9 +16,6 @@
   &:hover {
     color: var(--secondary);
     svg {
-      rect {
-        stroke: var(--secondary);
-      }
       :nth-child(1) {
         stroke-dashoffset: 380;
       }
@@ -49,7 +46,7 @@
   rect {
     fill: transparent;
     transition: 0.5s all;
-    stroke: var(--light);
+    stroke: var(--secondary);
     stroke-width: 2px;
     height: 100%;
     width: 100%;

@@ -72,7 +72,7 @@ const SearchBio: React.FC<Props> = ({ bgChange }) => {
           </div>
         </div>
       </section>
-      <Footer />
+      <Footer isCapital={bgChange} />
     </>
   );
 };

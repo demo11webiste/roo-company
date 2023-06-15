@@ -12,4 +12,9 @@
   color: var(--secondary);
   cursor: pointer;
   pointer-events: all;
+  transition: 0.3s all ease;
+  &:hover {
+    color: var(--light);
+    background-color: var(--secondary);
+  }
 }

@@ -3,6 +3,9 @@
 .main {
   background-color: #2a2b2f;
   padding-block: 50px;
+  @include lg {
+    padding-block: 0px;
+  }
 }
 
 .container {
@@ -35,7 +38,8 @@
     text-transform: uppercase;
     padding-bottom: 10px;
   }
-  p {
+  p,
+  a {
     font-weight: 400;
     font-size: toRem(14);
     line-height: calc(toRem(14) * 1.5);
@@ -48,6 +52,9 @@
 
 .side1 {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
   @include lg {
     width: 60%;
   }
@@ -64,32 +71,53 @@
 
 .side2 {
   width: 100%;
-  margin-top: 40px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
+  a {
+    text-decoration: none;
+    color: var(--light);
+    transition: 0.3s all ease;
+
+    &:hover {
+      color: var(--secondary);
+    }
+  }
   @include lg {
+    margin-top: 40px;
     width: 20%;
+    :nth-child(2) {
+      margin-top: 10px;
+    }
   }
 }
 
 .side3 {
-  margin-top: 40px;
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 10px;
   @include lg {
+    margin-top: 40px;
     width: 20%;
+    p:nth-child(2) {
+      margin-top: 5px;
+    }
+  }
+  a {
+    margin-top: -12px;
+    color: var(--light);
+    transition: 0.3s all ease;
+
+    &:hover {
+      color: var(--secondary);
+    }
   }
   :nth-child(2) {
     color: var(--light);
   }
   :nth-child(4) {
     color: #959597;
-  }
-  :nth-child(5) {
-    color: var(--secondary);
   }
   &_input {
     display: flex;
@@ -107,6 +135,7 @@
         color: var(--light);
       }
     }
+
     button {
       height: 32px;
       width: 32px;
@@ -123,7 +152,7 @@
 .lower {
   border-top: 1px solid rgba(130, 129, 129, 0.5);
   margin-top: 25px;
-  padding-top: 25px;
+  padding-top: 10px;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -138,13 +167,18 @@
     color: rgba(130, 129, 129, 0.5);
     font-size: toRem(11);
     line-height: calc(toRem(11) * 1.5);
+    a {
+      color: rgba(255, 254, 254, 0.5);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
   }
   svg {
     cursor: pointer;
     background-color: var(--secondary);
     border-radius: 999px;
     color: #2a2b2f;
-    font-size: 42px;
+    font-size: 34px;
     padding: 5px;
   }
 }

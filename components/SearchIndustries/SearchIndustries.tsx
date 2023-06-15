@@ -58,7 +58,7 @@ const SearchIndustries = () => {
           </div>
         </div>
       </section>
-      <Footer />
+      <Footer isCapital={false} />
     </>
   );
 };

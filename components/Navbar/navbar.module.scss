@@ -7,20 +7,30 @@
   height: 60px;
   margin-top: 20px;
   padding-inline: 25px;
-  max-width: 1500px;
+  width: 100%;
   margin-inline: auto;
   position: fixed;
   inset: 0;
   z-index: 6;
+  @media screen and (min-width: 1400px) {
+    width: 90%;
+  }
 }
 
 .logo {
   position: relative;
   height: 80px;
-  width: 180px;
-  transition: 0.5s all ease-in-out;
+  width: 140px;
+  transition: 0.5s all ease;
+  clip-path: inset(0 0 0 0);
+  &[data-logo="true"] {
+    clip-path: inset(0 105px 0 0);
+  }
   &[data-active="true"] {
     opacity: 0.5;
+  }
+  @include lg {
+    width: 180px;
   }
   img {
     object-fit: contain;
@@ -98,6 +108,7 @@
   z-index: -1;
   padding-inline: 25px;
   @include lg {
+    gap: 20px;
     padding-inline: 0px;
   }
   p {
@@ -118,8 +129,8 @@
     line-height: calc(18px * 1.5);
     font-weight: 400;
     @include lg {
-      font-size: 28px;
-      line-height: calc(28px * 1.4);
+      font-size: 27px;
+      line-height: 40px;
     }
   }
   a {
@@ -153,11 +164,17 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  max-width: 600px;
+  max-width: 610px;
   gap: 30px;
   position: relative;
+
+  &[data-width] {
+    @include lg {
+      width: 45%;
+    }
+  }
   @include lg {
-    width: 50%;
+    width: 55%;
     h3 {
       margin-bottom: 10px;
     }

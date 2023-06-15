@@ -19,12 +19,18 @@ const Navbar = () => {
   const [isMenuShow, setIsMenuShow] = useState<boolean>(false);
   const [isAllActive, setIsAllActive] = useState<boolean>(true);
   const [isActive, setIsActive] = useState<number>(0);
+  const [scrollValue, setScrollValue] = useState<number>(0);
 
   const [tl, setTl] = useState<GSAPTimeline>();
   const [capitalTl, setCapitalTl] = useState<GSAPTimeline>();
 
   const handleClick = () => {
     setIsMenuShow((prev) => !prev);
+    if (isMenuShow) {
+      if (scrollY > 250) setScrollValue(400);
+    } else {
+      setScrollValue(0);
+    }
   };
 
   const handleClose = () => {
@@ -37,6 +43,12 @@ const Navbar = () => {
   };
 
   useEffect(() => {
+    const getScrollValue = () => {
+      if (scrollY <= 300) setScrollValue(scrollY);
+    };
+
+    window.addEventListener("scroll", getScrollValue);
+
     ctx.add(() => {
       const tlPartner = gsap
         .timeline({
@@ -61,7 +73,10 @@ const Navbar = () => {
       setCapitalTl(tlCapital);
     });
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+      window.removeEventListener("scroll", getScrollValue);
+    };
   }, [ctx]);
 
   useEffect(() => {
@@ -75,18 +90,20 @@ const Navbar = () => {
   return (
     <header ref={root}>
       <nav className={s.main}>
-        <div data-active={isMenuShow} className={s.logo}>
-          {NavbarLogoSwitch === "partner" ? (
-            <Image src="/roo-partners-logo.png" alt="roo-capital" fill />
-          ) : NavbarLogoSwitch === "search" ? (
-            <Link href="/roo-search">
+        <div
+          data-logo={scrollValue > 250}
+          data-active={isMenuShow}
+          className={s.logo}
+        >
+          <Link onClick={handleClose} href="/">
+            {NavbarLogoSwitch === "partner" ? (
+              <Image src="/roo-partners-logo.png" alt="roo-capital" fill />
+            ) : NavbarLogoSwitch === "search" ? (
               <Image src="/roo-search-logo.png" alt="roo-capital" fill />
-            </Link>
-          ) : (
-            <Link href="/roo-capital">
+            ) : (
               <Image src="/roo-capital-logo.png" alt="roo-capital" fill />
-            </Link>
-          )}
+            )}
+          </Link>
         </div>
         <button
           data-active={isMenuShow}
@@ -188,7 +205,7 @@ const Navbar = () => {
             culture and vision.
           </p>
         </div>
-        <div className={s.box}>
+        <div data-width className={s.box}>
           <div className={`${s.rooLogo} roologo`}>
             <Image src="/logo.png" fill alt="roo-logo" />
           </div>

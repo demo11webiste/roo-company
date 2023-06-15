@@ -6,6 +6,7 @@ import useGsapContext from "@/hooks/useGsapContext";
 import { Power2, Power4, gsap } from "gsap";
 import { useRouter } from "next/router";
 import { store } from "@/store";
+import Link from "next/link";
 
 const Partners = () => {
   const { push } = useRouter();
@@ -218,7 +219,9 @@ const Partners = () => {
           className={`${s.content} content-1`}
         >
           <div className={`${s.content_img} content-img-1`}>
-            <Image src="/roo-capital-logo.png" fill alt="roo-capital" />
+            <Link href="/roo-capital">
+              <Image src="/roo-capital-logo.png" fill alt="roo-capital" />
+            </Link>
           </div>
           <h6
             onPointerEnter={() => setLeftSideState(false)}
@@ -240,7 +243,9 @@ const Partners = () => {
           className={`${s.content} content-2`}
         >
           <div className={`${s.content_img} content-img-2`}>
-            <Image src="/roo-search-logo.png" fill alt="roo-search" />
+            <Link href="/roo-search">
+              <Image src="/roo-search-logo.png" fill alt="roo-search" />
+            </Link>
           </div>
           <h6
             onPointerEnter={() => setRightSideState(false)}

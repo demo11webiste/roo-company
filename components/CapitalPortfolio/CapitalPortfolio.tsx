@@ -70,7 +70,7 @@ const CapitalPortfolio = () => {
           </div>
         </div>
       </section>
-      <Footer />
+      <Footer isCapital />
     </>
   );
 };

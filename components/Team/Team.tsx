@@ -96,7 +96,7 @@ const Team: React.FC<Props> = ({ bgChange = false }) => {
           </div>
         </div>
       </section>
-      <Footer />
+      <Footer isCapital={bgChange} />
     </>
   );
 };
