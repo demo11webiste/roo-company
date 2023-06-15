@@ -3,6 +3,8 @@
   background-image: url("/search-bio-bg.png");
   background-repeat: no-repeat;
   background-position: center;
+  position: relative;
+  background-size: cover;
   &[data-bg="true"] {
     background-image: url("/capital-bio-bg.png");
   }
@@ -37,21 +39,39 @@
     font-size: toRem(20);
     line-height: calc(toRem(20) * 1.5);
     @include lg {
+      position: absolute;
       display: block;
+      top: 0;
+      height: 80px;
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 160px;
+    }
+    @media screen and (min-width: 1800px) {
+      margin-left: 0px;
     }
   }
   button {
     text-transform: uppercase;
     background: transparent;
     border: none;
-    color: var(--secondary);
+    color: var(--light);
     font-size: toRem(16);
     line-height: calc(toRem(16) * 1.5);
+    cursor: pointer;
+    transition: 0.3s all ease;
+    &:hover {
+      color: var(--secondary);
+    }
     @include lg {
+      margin-left: auto;
       font-size: toRem(14);
       line-height: calc(toRem(14) * 1.5);
     }
     svg {
+      font-size: toRem(18);
       margin-left: 5px;
     }
   }
@@ -72,6 +92,8 @@
   position: relative;
   width: 100%;
   height: calc(100vw - 50px);
+  border-radius: 4px;
+  overflow: hidden;
   @include lg {
     width: 445px;
     height: 545px;
@@ -100,14 +122,16 @@
     flex-direction: column;
     gap: 20px;
     h1 {
-      font-weight: 600;
+      font-weight: 500;
+      letter-spacing: 1.3px;
       @include lg {
         font-size: toRem(52);
-        line-height: calc(toRem(52) * 1.2);
+        line-height: toRem(62);
       }
     }
     h2 {
-      font-weight: 600;
+      text-transform: uppercase;
+      font-weight: 500;
       @include lg {
         font-size: toRem(28);
         line-height: calc(toRem(28) * 1.3);
@@ -127,8 +151,14 @@
         color: var(--secondary);
         font-size: toRem(22);
       }
-      p {
+      a {
+        text-decoration: none;
         font-weight: 400;
+        color: var(--light);
+        transition: 0.3s all ease;
+        &:hover {
+          color: var(--secondary);
+        }
         @include lg {
           font-size: toRem(22);
           line-height: calc(toRem(22) * 1.4);

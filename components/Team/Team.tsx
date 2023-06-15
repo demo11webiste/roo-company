@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { HiOutlineMail } from "react-icons/hi";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type Props = {
   bgChange?: boolean;
@@ -13,6 +13,9 @@ type Props = {
 
 const Team: React.FC<Props> = ({ bgChange = false }) => {
   const [activeCard, setActiveCard] = useState<number>(2);
+  const [screenWidth, setScreenWidth] = useState<number>(700);
+
+  const { push } = useRouter();
 
   const handleNext = () => {
     if (activeCard < 5) {
@@ -27,6 +30,22 @@ const Team: React.FC<Props> = ({ bgChange = false }) => {
       setActiveCard((prev) => prev - 1);
     } else {
       setActiveCard(5);
+    }
+  };
+
+  useEffect(() => {
+    const getInnerWidth = () => {
+      setScreenWidth(innerWidth);
+    };
+    getInnerWidth();
+    window.addEventListener("resize", getInnerWidth);
+    return () => window.removeEventListener("resize", getInnerWidth);
+  }, []);
+
+  const handleClick = (id: number) => {
+    setActiveCard(id);
+    if (activeCard === id || screenWidth <= 600) {
+      push(`/roo-capital-team/${id}`);
     }
   };
 
@@ -58,25 +77,23 @@ const Team: React.FC<Props> = ({ bgChange = false }) => {
 
             <div
               style={{
-                transform: `translateX(calc( -280px * ${activeCard}))`,
+                transform: `translateX(calc( -280px * ${
+                  screenWidth <= 600 ? 0 : activeCard
+                }))`,
               }}
               className={s.grid}
             >
               {[...Array(6)].map((e, i) => {
                 return (
                   <div
-                    onClick={() => setActiveCard(i)}
+                    onClick={() => handleClick(i)}
                     data-active={i === activeCard}
                     data-position={i % 2 === 0}
                     key={i}
                     className={s.card}
                   >
                     <div data-active={i === activeCard} className={s.card_img}>
-                      <Image
-                        src={`/team/partner-${0}.png`}
-                        alt="partner"
-                        fill
-                      />
+                      <Image src={`/team/${i}.jpg`} alt="partner" fill />
                     </div>
                     <div
                       data-active={i === activeCard}
@@ -86,7 +103,7 @@ const Team: React.FC<Props> = ({ bgChange = false }) => {
                       <h3>CEO</h3>
                       <div>
                         <HiOutlineMail />
-                        <Link href="#">nate.dapore@gmail.com</Link>
+                        <p>nate.dapore@gmail.com</p>
                       </div>
                     </div>
                   </div>

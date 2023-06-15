@@ -2,43 +2,61 @@ import s from "./bio.module.scss";
 import { HiOutlineMail } from "react-icons/hi";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaPhoneSquareAlt } from "react-icons/fa";
+import { TiArrowBack } from "react-icons/ti";
 import Image from "next/image";
 import Footer from "../Footer/Footer";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 type Props = {
   bgChange: boolean;
 };
 
 const SearchBio: React.FC<Props> = ({ bgChange }) => {
+  const { query, push } = useRouter();
+
   return (
     <>
       <section data-bg={bgChange} className={s.main}>
         <div className={s.container}>
           <div className={s.head}>
             <h5>the roo SEARCH team</h5>
-            <button>BACK TO LIST</button>
+            <button
+              onClick={() =>
+                push(bgChange ? "/roo-capital-team" : "/roo-search-team")
+              }
+            >
+              BACK TO LIST
+            </button>
           </div>
           <div className={s.grid}>
             <div className={s.img}>
-              <Image src="/team/partner.png" fill alt="team-member" />
+              <Image src={`/team/${query.slug}.jpg`} fill alt="team-member" />
             </div>
             <div className={s.detail}>
               <div className={s.detail_head}>
-                <h1>First Name</h1>
+                <h1>First Lastname</h1>
                 <h2>Title</h2>
               </div>
               <div className={s.detail_contact}>
                 <div>
                   <HiOutlineMail />
-                  <p>nate.dapore@roopartners.com</p>
+                  <Link href="mailto:nate.dapore@roopartners.com">
+                    nate.dapore@roopartners.com
+                  </Link>
                 </div>
                 <div>
                   <FaPhoneSquareAlt />
-                  <p>843-607-8601</p>
+                  <Link href="tel:+923162628132">843-607-8601</Link>
                 </div>
                 <div>
                   <FaLinkedinIn />
-                  <p>linkedin.com/in/natedapore</p>
+                  <Link
+                    href="https://www.linkedin.com/in/natedapore"
+                    target="_blank"
+                  >
+                    linkedin.com/in/natedapore
+                  </Link>
                 </div>
               </div>
               <div className={s.detail_content}>
