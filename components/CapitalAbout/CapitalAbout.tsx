@@ -7,6 +7,8 @@ import useGsapContext from "@/hooks/useGsapContext";
 import useLayout from "@/hooks/useLayout";
 import { animation } from "./animation";
 import SplitType from "split-type";
+import { useRouter } from "next/router";
+import SvgGradient from "../SvgGradient/SvgGradient";
 
 const CapitalAbout = () => {
   //references
@@ -14,6 +16,8 @@ const CapitalAbout = () => {
   const root = useRef<HTMLElement>(null);
 
   const ctx = useGsapContext(root);
+
+  const { push } = useRouter();
 
   useLayout(() => {
     const mainHeading = SplitType.create("#main-heading");
@@ -30,7 +34,9 @@ const CapitalAbout = () => {
       <div className={s.bg}>
         <section ref={root} className={s.main}>
           <div className={s.box}>
-            <h4 className="main-small">WHO WE ARE</h4>
+            <div className={s.menuSide}>
+              <h4 className="main-small">WHO WE ARE</h4>
+            </div>
             <h1 id="main-heading">
               We strive to support the bold in building legendary companies.
             </h1>
@@ -87,7 +93,11 @@ const CapitalAbout = () => {
                     </h4>
                     <p>– FIRSTNAME LASTNAME, COMPANY</p>
                   </div>
-                  <div className={`say-card-border-${i} ${s.sayCard_img}`}>
+                  <div className={s.sayCard_img}>
+                    <svg>
+                      <SvgGradient />
+                      <circle className={`border-${i}`} />
+                    </svg>
                     <div className={`say-card-image-${i}`}>
                       <Image
                         src="/florence-logo.png"
@@ -116,7 +126,7 @@ const CapitalAbout = () => {
                 abore et commodo”
               </h5>
               <p>– NATE DAPORE, CEO</p>
-              <button>
+              <button onClick={() => push("/roo-capital-team")}>
                 MEET THE TEAM <FaLongArrowAltRight />
               </button>
             </div>

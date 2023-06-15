@@ -41,7 +41,6 @@ export const animation = (heading: Heading) => {
       delay: 0.5,
       ease: Circ.easeOut,
       clipPath: "inset(0 0 100% 0)",
-      duration: 1,
     })
     .from(".stage-small", { opacity: 0 })
     .from(".stage-grid", { opacity: 0 })
@@ -55,7 +54,7 @@ export const animation = (heading: Heading) => {
     opacity: 0,
     scrollTrigger: {
       trigger: ".say",
-      start: "top center",
+      start: "top 80%",
     },
   });
 
@@ -64,13 +63,13 @@ export const animation = (heading: Heading) => {
       .timeline({
         scrollTrigger: {
           trigger: `.say-card-${i}`,
-          start: "top center",
+          start: "top 80%",
           markers: false,
         },
       })
-      .from(`.say-card-border-${i}`, {
-        clipPath: "circle(0% at 0 0)",
-        duration: 2,
+      .to(`.border-${i}`, {
+        strokeDashoffset: 0,
+        duration: 1,
       })
       .from(`.say-card-image-${i}`, { opacity: 0 }, "<0.4")
       .from(`.say-card-content-${i}`, { opacity: 0 }, "<0.2");
