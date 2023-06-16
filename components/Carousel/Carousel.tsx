@@ -19,7 +19,7 @@ const brandLogo = [
 
 type Props = {
   bgChange?: boolean;
-  cardType: "team" | "brand";
+  cardType: "team" | "brand" | "industry";
 };
 
 const Team: React.FC<Props> = ({ bgChange = false, cardType }) => {
@@ -59,8 +59,10 @@ const Team: React.FC<Props> = ({ bgChange = false, cardType }) => {
     if (activeCard === id || screenWidth <= 600) {
       if (cardType === "team") {
         push(`/roo-capital-team/${id}`);
-      } else {
+      } else if (cardType === "brand") {
         push(`/roo-capital-portfolio/${id}`);
+      } else {
+        push(`/roo-search-industries/${id}`);
       }
     }
   };
@@ -70,7 +72,11 @@ const Team: React.FC<Props> = ({ bgChange = false, cardType }) => {
       <section data-bg={bgChange} className={s.main}>
         <div className={s.container}>
           <h5>
-            {cardType === "team" ? "the roo SEARCH team" : "our portfolio"}
+            {cardType === "team"
+              ? "the roo SEARCH team"
+              : cardType === "brand"
+              ? "our portfolio"
+              : "industry expertise"}
           </h5>
           <div className={s.gridControl}>
             <button onClick={handlePrev} data-left className={s.controlBtn}>
@@ -112,13 +118,26 @@ const Team: React.FC<Props> = ({ bgChange = false, cardType }) => {
                       />
                     );
                   })
-                : brandLogo.map((e, i) => {
+                : cardType === "brand"
+                ? brandLogo.map((e, i) => {
                     return (
                       <BrandCard
+                        contentChange={false}
                         activeCard={activeCard}
                         handleClick={handleClick}
                         id={i}
                         img={e}
+                        key={i}
+                      />
+                    );
+                  })
+                : [...Array(6)].map((e, i) => {
+                    return (
+                      <BrandCard
+                        contentChange
+                        activeCard={activeCard}
+                        handleClick={handleClick}
+                        id={i}
                         key={i}
                       />
                     );

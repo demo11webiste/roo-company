@@ -18,6 +18,11 @@ $bgColor: rgb(245, 245, 245, 0.3);
     height: 280px;
     width: 250px;
     min-width: 250px;
+    &[data-size="true"] {
+      height: 280px;
+      width: 280px;
+      min-width: 280px;
+    }
     &[data-active="true"] {
       width: 470px;
       min-width: 470px;
@@ -85,5 +90,48 @@ $bgColor: rgb(245, 245, 245, 0.3);
   p {
     font-size: toRem(12);
     line-height: calc(toRem(12) * 1.5);
+  }
+}
+
+.industryCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.3s all var(--custom-ease-out);
+  h1 {
+    font-size: toRem(98.5);
+    line-height: calc(toRem(98.5) * 1.2);
+  }
+  h6 {
+    font-weight: 500;
+    font-size: toRem(16);
+    line-height: calc(toRem(16) * 1.5);
+    max-width: 270px;
+    text-align: center;
+    &[data-active="true"] {
+      margin-bottom: 40px;
+    }
+  }
+  p {
+    font-size: toRem(20);
+    line-height: calc(toRem(20) * 1.5);
+  }
+  &_hide {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    height: 0px;
+    width: 0px;
+    opacity: 0;
+    overflow: hidden;
+    padding-bottom: 5px;
+    transition: 0.5s all var(--custom-ease-out);
+    @include lg {
+      &[data-active="true"] {
+        height: fit-content;
+        width: fit-content;
+        opacity: 1;
+      }
+    }
   }
 }

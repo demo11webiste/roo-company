@@ -1,5 +1,5 @@
-import SearchIndustries from "@/components/SearchIndustries/SearchIndustries";
 import Head from "next/head";
+import Carousel from "@/components/Carousel/Carousel";
 
 const RooSearchIndustries = () => {
   return (
@@ -10,7 +10,7 @@ const RooSearchIndustries = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <SearchIndustries />
+      <Carousel cardType="industry" />
     </>
   );
 };
