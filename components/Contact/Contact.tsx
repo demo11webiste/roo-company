@@ -4,12 +4,13 @@ import { FaPhoneSquareAlt } from "react-icons/fa";
 import { ImLocation } from "react-icons/im";
 import Image from "next/image";
 import Footer from "../Footer/Footer";
+import Link from "next/link";
 
 type Props = {
   condition: boolean;
 };
 
-const CapitalContact: React.FC<Props> = ({ condition }) => {
+const Contact: React.FC<Props> = ({ condition }) => {
   return (
     <>
       <section data-condition={condition} className={s.main}>
@@ -21,10 +22,10 @@ const CapitalContact: React.FC<Props> = ({ condition }) => {
                 ? "We build businesses by finding great leaders and industry experts."
                 : "We build businesses by providing capital and industry expertise."}
             </h1>
-            <p>
+            <Link href="mailto:hello@roocapital.com">
               <HiOutlineMail />
               hello@roocapital.com
-            </p>
+            </Link>
           </div>
           <iframe
             className={s.map}
@@ -68,21 +69,17 @@ const CapitalContact: React.FC<Props> = ({ condition }) => {
           <div className={s.bottom_box}>
             <h5>Roo Capital is a division of Roo Partners, LLC</h5>
             <div className={s.bottom_img}>
-              {condition ? (
+              <Link href="/">
                 <Image
                   src="/roo-partner-white-logo.png"
                   fill
                   alt="roo-partner-logo"
                 />
-              ) : (
-                <Image
-                  src="/roo-search-white-logo.png"
-                  fill
-                  alt="roo-search-logo"
-                />
-              )}
+              </Link>
             </div>
-            <h1>Capital + Growth + Talent</h1>
+            <Link href="/">
+              <h1>Capital + Growth + Talent</h1>
+            </Link>
             <p>
               The right capital and growth strategy can inspire, accelerate,and
               keep your organization moving forward.
@@ -95,4 +92,4 @@ const CapitalContact: React.FC<Props> = ({ condition }) => {
   );
 };
 
-export default CapitalContact;
+export default Contact;

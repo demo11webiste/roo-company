@@ -1,4 +1,4 @@
-import CapitalContact from "@/components/CapitalContact/CapitalContact";
+import Contact from "@/components/Contact/Contact";
 import Head from "next/head";
 
 const RooSearchContact = () => {
@@ -10,7 +10,7 @@ const RooSearchContact = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <CapitalContact condition={true} />
+      <Contact condition={true} />
     </>
   );
 };

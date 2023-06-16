@@ -5,6 +5,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  position: relative;
   &[data-condition="true"] {
     background-image: url("/search-contact-bg.png");
   }
@@ -32,27 +33,48 @@
   }
   h5 {
     font-weight: 400;
-    text-transform: capitalize;
+    text-transform: uppercase;
     color: var(--secondary);
-
-    font-size: toRem(20);
-    line-height: calc(toRem(20) * 1.5);
+    font-size: toRem(16);
+    line-height: calc(toRem(16) * 1.5);
+    @include lg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      height: 80px;
+      margin-top: 25px;
+      margin-left: 180px;
+      top: 0;
+    }
+    @media screen and (min-width: 1400px) {
+      margin-left: 150px;
+    }
+    @media screen and (min-width: 1800px) {
+      margin-left: 0px;
+    }
   }
 
   h1 {
-    font-weight: 600;
+    font-weight: 500;
     max-width: 980px;
     font-size: toRem(28);
     line-height: calc(toRem(28) * 1.4);
     @include lg {
-      font-size: toRem(48);
-      line-height: calc(toRem(48) * 1.2);
+      font-size: toRem(48.5);
+      line-height: toRem(60.5);
+      letter-spacing: 1.21px;
     }
   }
-  p {
+  a {
+    color: var(--light);
     font-weight: 400;
     display: flex;
     align-items: center;
+    transition: 0.3s all ease;
+    &:hover {
+      color: var(--secondary);
+    }
     svg {
       color: var(--secondary);
       margin-right: 10px;
@@ -136,6 +158,7 @@
     border: none;
     height: 45px;
     width: 150px;
+    cursor: pointer;
   }
 }
 
@@ -202,6 +225,11 @@
     position: relative;
     width: 250px;
     height: 88px;
+    cursor: pointer;
+    transition: 0.3s all var(--custom-ease-out);
+    &:hover {
+      transform: scale(1.2);
+    }
     img {
       object-fit: contain;
     }
@@ -230,8 +258,13 @@
     }
     h1 {
       text-align: center;
-      color: var(--secondary);
       font-weight: 600;
+      color: var(--light);
+      transition: 0.3s all ease;
+      cursor: pointer;
+      &:hover {
+        color: var(--secondary);
+      }
       @include lg {
         font-size: toRem(40);
         line-height: calc(toRem(40) * 1.2);
