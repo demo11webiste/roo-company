@@ -7,12 +7,13 @@ import Image from "next/image";
 import Footer from "../Footer/Footer";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import BackIcon from "../BackIcon/BackIcon";
 
 type Props = {
   bgChange: boolean;
 };
 
-const SearchBio: React.FC<Props> = ({ bgChange }) => {
+const Bio: React.FC<Props> = ({ bgChange }) => {
   const { query, push } = useRouter();
 
   return (
@@ -26,7 +27,7 @@ const SearchBio: React.FC<Props> = ({ bgChange }) => {
                 push(bgChange ? "/roo-capital-team" : "/roo-search-team")
               }
             >
-              BACK TO LIST
+              BACK TO LIST <BackIcon />
             </button>
           </div>
           <div className={s.grid}>
@@ -95,4 +96,4 @@ const SearchBio: React.FC<Props> = ({ bgChange }) => {
   );
 };
 
-export default SearchBio;
+export default Bio;

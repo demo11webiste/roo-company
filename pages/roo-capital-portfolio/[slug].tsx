@@ -1,4 +1,4 @@
-import Spotlight from "@/components/SearchSpotlight/Spotlight";
+import Spotlight from "@/components/Spotlight/Spotlight";
 import Head from "next/head";
 
 const BioPage = () => {

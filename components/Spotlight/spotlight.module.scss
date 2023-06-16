@@ -6,6 +6,7 @@
   background-size: cover;
   background-position: center;
   padding-top: 120px;
+  position: relative;
   @include lg {
     padding-top: 180px;
   }
@@ -42,16 +43,47 @@
     color: var(--secondary);
     @include lg {
       display: block;
-      font-size: toRem(20);
-      line-height: calc(toRem(20));
+      position: absolute;
+      top: 0;
+      font-size: toRem(16);
+      line-height: calc(toRem(16) * 1.5);
+      height: 80px;
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 180px;
+    }
+    @media screen and (min-width: 1400px) {
+      margin-left: 150px;
+    }
+    @media screen and (min-width: 1800px) {
+      margin-left: 0px;
     }
   }
   a {
     font-weight: 500;
-    color: var(--secondary);
     cursor: pointer;
     font-size: toRem(20);
     line-height: calc(toRem(20) * 1.5);
+    color: var(--light);
+    margin-left: auto;
+    svg {
+      height: 16px;
+      width: 16px;
+      margin-left: 5px;
+      path {
+        fill: var(--light);
+      }
+    }
+    &:hover {
+      color: var(--secondary);
+      svg {
+        path {
+          fill: var(--secondary);
+        }
+      }
+    }
     @include lg {
       font-size: toRem(14);
       line-height: calc(toRem(14) * 1.5);

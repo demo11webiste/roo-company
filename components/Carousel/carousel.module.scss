@@ -5,6 +5,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  position: relative;
   &[data-bg="true"] {
     background-image: url("/capital-team-bg.png");
   }
@@ -32,9 +33,16 @@
     line-height: calc(toRem(16) * 1.4);
     margin-top: 100px;
     @include lg {
-      margin-top: 0;
-      margin-bottom: 100px;
-      height: 60px;
+      position: absolute;
+      top: 0;
+      margin-left: 180px;
+      height: 80px;
+      margin-top: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    @media screen and (min-width: 1400px) {
       margin-left: 150px;
     }
     @media screen and (min-width: 1800px) {
@@ -47,6 +55,7 @@
   position: relative;
   margin-bottom: 100px;
   @include lg {
+    margin-top: 100px;
     margin-bottom: 0;
   }
 }

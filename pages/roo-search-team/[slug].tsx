@@ -1,4 +1,4 @@
-import SearchBio from "@/components/SearchBio/SearchBio";
+import Bio from "@/components/Bio/Bio";
 import Head from "next/head";
 
 const BioPage = () => {
@@ -10,7 +10,7 @@ const BioPage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <SearchBio bgChange={false} />
+      <Bio bgChange={false} />
     </>
   );
 };

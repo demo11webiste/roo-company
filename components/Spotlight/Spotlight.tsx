@@ -2,6 +2,7 @@ import Link from "next/link";
 import s from "./spotlight.module.scss";
 import Image from "next/image";
 import Footer from "../Footer/Footer";
+import BackIcon from "../BackIcon/BackIcon";
 
 type Props = {
   bgChange: boolean;
@@ -13,8 +14,15 @@ const Spotlight: React.FC<Props> = ({ bgChange }) => {
       <div data-bg={bgChange} className={s.bg}>
         <section className={s.main}>
           <div className={s.header}>
-            <h4>industry expertise</h4>
-            <Link href="#">BACK TO LIST</Link>
+            <h4>our portfolio</h4>
+            <Link
+              href={
+                bgChange ? "/roo-capital-portfolio" : "/roo-search-industries"
+              }
+            >
+              BACK TO LIST
+              <BackIcon />
+            </Link>
           </div>
           <div className={s.container}>
             <div className={s.outer}>
