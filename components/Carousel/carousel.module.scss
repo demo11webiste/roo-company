@@ -64,105 +64,6 @@
   }
 }
 
-.card {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  height: fit-content;
-  padding-bottom: 20px;
-  transition: 0.3s all var(--custom-ease-out);
-  cursor: pointer;
-  @include lg {
-    &[data-position="true"] {
-      transform: translateY(290px);
-    }
-    &[data-active="true"] {
-      transform: translateY(-80px);
-    }
-  }
-  &_img {
-    position: relative;
-    width: 100%;
-    height: calc(100vw - 40px);
-    border-radius: 4px;
-    overflow: hidden;
-    transition: 0.3s all var(--custom-ease-out);
-    @include lg {
-      width: 250px;
-      height: 270px;
-      min-width: 250px;
-      &[data-active="true"] {
-        width: 330px;
-        height: 400px;
-        img {
-          filter: grayscale(0%);
-        }
-      }
-    }
-    img {
-      filter: grayscale(100%);
-      object-fit: cover;
-    }
-  }
-  &_content {
-    transition: 0.3s all var(--custom-ease-out);
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    @include lg {
-      display: block;
-    }
-    @include lg {
-      clip-path: inset(0 0 calc(100% - 16px * 1.5) 0);
-      &[data-active="true"] {
-        clip-path: inset(0 0 0% 0);
-        h2 {
-          color: var(--secondary);
-          font-weight: 400;
-        }
-      }
-    }
-    h2 {
-      color: var(--secondary);
-      font-weight: 200;
-      font-size: toRem(20);
-      line-height: calc(toRem(20) * 1.5);
-      @include lg {
-        color: rgb(155, 149, 153);
-        font-size: toRem(16);
-        line-height: calc(toRem(16) * 1.5);
-      }
-    }
-    h3 {
-      font-weight: 400;
-      font-size: toRem(18);
-      line-height: calc(toRem(18) * 1.5);
-    }
-    div {
-      display: none;
-      align-items: center;
-      gap: 10px;
-      @include lg {
-        display: flex;
-      }
-      svg {
-        font-size: toRem(20);
-        color: var(--secondary);
-      }
-      p {
-        text-decoration: none;
-        color: var(--light);
-        font-weight: 200;
-        font-size: toRem(16);
-        line-height: calc(toRem(16) * 1.5);
-        &:hover {
-          color: var(--secondary);
-        }
-      }
-    }
-  }
-}
-
 .controlBtn {
   display: none;
   position: absolute;
@@ -175,7 +76,7 @@
   height: 100px;
   width: 100px;
   color: var(--light);
-  z-index: 10;
+  z-index: 4;
   font-size: 80px;
   align-items: center;
   justify-content: center;

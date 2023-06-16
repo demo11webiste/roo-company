@@ -1,0 +1,89 @@
+@import "../../styles/breakpoint";
+
+$bgColor: rgb(245, 245, 245, 0.3);
+
+.main {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: calc(100vw - 40px);
+  background-color: $bgColor;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s all var(--custom-ease-out);
+  @include lg {
+    height: 280px;
+    width: 250px;
+    min-width: 250px;
+    &[data-active="true"] {
+      width: 470px;
+      min-width: 470px;
+      height: fit-content;
+      padding: 60px;
+      transform: translateY(-80px) !important;
+    }
+    &[data-position="true"] {
+      transform: translateY(240px);
+    }
+  }
+  &_logo {
+    position: relative;
+    height: 85px;
+    width: 170px;
+    img {
+      object-fit: contain;
+    }
+  }
+}
+
+.content {
+  height: 0px;
+  width: 0px;
+  overflow: hidden;
+  padding-bottom: 5px;
+  opacity: 0;
+  flex-direction: column;
+  transition-property: opacity, height, width;
+  transition-duration: 0.5s, 0.3s, 0.3s;
+  transition-timing-function: var(--custom-ease-out);
+  transition-delay: 0.3s, 0s, 0s;
+  @include lg {
+    &[data-active="true"] {
+      height: fit-content;
+      width: fit-content;
+      opacity: 1;
+      display: flex;
+      gap: 40px;
+      margin-top: 30px;
+    }
+  }
+  h6 {
+    font-weight: 400;
+    color: var(--light);
+    font-size: toRem(18);
+    line-height: calc(toRem(18) * 1.5);
+  }
+  p {
+    color: var(--light);
+    font-size: toRem(16);
+    line-height: calc(toRem(16) * 1.5);
+  }
+}
+
+.tag {
+  text-transform: uppercase;
+  background-color: var(--secondary);
+  padding: 10px 20px;
+  position: absolute;
+  inset: 0;
+  border-radius: 4px;
+  width: fit-content;
+  height: fit-content;
+  p {
+    font-size: toRem(12);
+    line-height: calc(toRem(12) * 1.5);
+  }
+}

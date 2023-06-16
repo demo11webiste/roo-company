@@ -1,17 +1,28 @@
 import Image from "next/image";
-import s from "./team.module.scss";
+import s from "./carousel.module.scss";
 import Footer from "../Footer/Footer";
 import { useRouter } from "next/router";
 import { HiOutlineMail } from "react-icons/hi";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
-import Link from "next/link";
 import { useEffect, useState } from "react";
+import TeamCard from "../TeamCard/TeamCard";
+import BrandCard from "../BrandCard/BrandCard";
+
+const brandLogo = [
+  "/fetcher-logo.png",
+  "/tempmee-logo.png",
+  "/florence-logo.png",
+  "/tempmee-logo.png",
+  "/firebolt-logo.png",
+  "/onchain-logo.png",
+];
 
 type Props = {
   bgChange?: boolean;
+  cardType: "team" | "brand";
 };
 
-const Team: React.FC<Props> = ({ bgChange = false }) => {
+const Team: React.FC<Props> = ({ bgChange = false, cardType }) => {
   const [activeCard, setActiveCard] = useState<number>(2);
   const [screenWidth, setScreenWidth] = useState<number>(700);
 
@@ -44,8 +55,13 @@ const Team: React.FC<Props> = ({ bgChange = false }) => {
 
   const handleClick = (id: number) => {
     setActiveCard(id);
+
     if (activeCard === id || screenWidth <= 600) {
-      push(`/roo-capital-team/${id}`);
+      if (cardType === "team") {
+        push(`/roo-capital-team/${id}`);
+      } else {
+        push(`/roo-capital-portfolio/${id}`);
+      }
     }
   };
 
@@ -53,7 +69,9 @@ const Team: React.FC<Props> = ({ bgChange = false }) => {
     <>
       <section data-bg={bgChange} className={s.main}>
         <div className={s.container}>
-          <h5>the roo SEARCH team</h5>
+          <h5>
+            {cardType === "team" ? "the roo SEARCH team" : "our portfolio"}
+          </h5>
           <div className={s.gridControl}>
             <button onClick={handlePrev} data-left className={s.controlBtn}>
               <IoIosArrowBack />
@@ -83,32 +101,28 @@ const Team: React.FC<Props> = ({ bgChange = false }) => {
               }}
               className={s.grid}
             >
-              {[...Array(6)].map((e, i) => {
-                return (
-                  <div
-                    onClick={() => handleClick(i)}
-                    data-active={i === activeCard}
-                    data-position={i % 2 === 0}
-                    key={i}
-                    className={s.card}
-                  >
-                    <div data-active={i === activeCard} className={s.card_img}>
-                      <Image src={`/team/${i}.jpg`} alt="partner" fill />
-                    </div>
-                    <div
-                      data-active={i === activeCard}
-                      className={s.card_content}
-                    >
-                      <h2>Nate DaPore</h2>
-                      <h3>CEO</h3>
-                      <div>
-                        <HiOutlineMail />
-                        <p>nate.dapore@gmail.com</p>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
+              {cardType === "team"
+                ? [...Array(6)].map((e, i) => {
+                    return (
+                      <TeamCard
+                        activeCard={activeCard}
+                        handleClick={handleClick}
+                        id={i}
+                        key={i}
+                      />
+                    );
+                  })
+                : brandLogo.map((e, i) => {
+                    return (
+                      <BrandCard
+                        activeCard={activeCard}
+                        handleClick={handleClick}
+                        id={i}
+                        img={e}
+                        key={i}
+                      />
+                    );
+                  })}
             </div>
           </div>
         </div>

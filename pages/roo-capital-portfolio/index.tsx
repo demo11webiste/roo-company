@@ -1,4 +1,4 @@
-import CapitalPortfolio from "@/components/CapitalPortfolio/CapitalPortfolio";
+import Carousel from "@/components/Carousel/Carousel";
 import Head from "next/head";
 
 const RooCapitalPortfolio = () => {
@@ -10,7 +10,7 @@ const RooCapitalPortfolio = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <CapitalPortfolio />
+      <Carousel cardType="brand" bgChange />
     </>
   );
 };

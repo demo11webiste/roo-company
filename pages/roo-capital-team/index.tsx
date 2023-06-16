@@ -1,4 +1,4 @@
-import Team from "@/components/Team/Team";
+import Carousel from "@/components/Carousel/Carousel";
 import Head from "next/head";
 
 const RooCapitalTeam = () => {
@@ -10,7 +10,7 @@ const RooCapitalTeam = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Team bgChange />
+      <Carousel cardType="team" bgChange />
     </>
   );
 };
