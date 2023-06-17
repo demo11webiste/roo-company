@@ -32,14 +32,14 @@
     margin-bottom: 200px;
   }
   h1 {
-    font-weight: 600;
+    font-weight: 500;
     text-align: right;
-    max-width: 830px;
+    max-width: 900;
     font-size: toRem(32);
     line-height: calc(toRem(32) * 1.2);
     @include lg {
-      font-size: toRem(62);
-      line-height: calc(toRem(62) * 1.2);
+      font-size: toRem(74);
+      line-height: calc(toRem(74) * 1.2);
     }
   }
   svg {
@@ -72,18 +72,18 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 50px;
-  max-width: 650px;
+  max-width: 655px;
   gap: 30px;
   @include lg {
     gap: 60px;
   }
   h2 {
-    font-weight: 600;
+    font-weight: 500;
     font-size: toRem(28);
     line-height: calc(toRem(28) * 1.2);
     @include lg {
-      font-size: toRem(40);
-      line-height: calc(toRem(40) * 1.2);
+      font-size: toRem(42);
+      line-height: calc(toRem(42) * 1.2);
     }
   }
   p {
