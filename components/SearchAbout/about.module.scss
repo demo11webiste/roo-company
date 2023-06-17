@@ -5,6 +5,7 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  position: relative;
 }
 
 .container {
@@ -32,17 +33,32 @@
     font-weight: 600;
     text-transform: uppercase;
     color: var(--secondary);
-
-    font-size: toRem(20);
-    line-height: calc(toRem(20 * 1.4));
+    font-size: toRem(16);
+    line-height: calc(toRem(16 * 1.4));
+    @include lg {
+      position: absolute;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 80px;
+      margin-top: 25px;
+      margin-left: 180px;
+    }
+    @media screen and (min-width: 1400px) {
+      margin-left: 150px;
+    }
+    @media screen and (min-width: 1800px) {
+      margin-left: 0px;
+    }
   }
   h1 {
-    font-weight: 600;
+    font-weight: 500;
     font-size: toRem(36);
     line-height: calc(toRem(36) * 1.2);
     @include lg {
-      font-size: toRem(48);
-      line-height: calc(toRem(48) * 1.2);
+      font-size: toRem(50);
+      line-height: calc(toRem(50) * 1.2);
     }
   }
   &_box {
@@ -146,13 +162,27 @@
     height: 400px;
     width: 400px;
   }
-  div {
+  svg {
     position: absolute;
     height: 100%;
     width: 100%;
-    background-image: url("/border.png");
-    background-position: center;
-    background-size: contain;
+    inset: 0;
+    circle {
+      r: 160;
+      stroke: url("#linear");
+      fill: transparent;
+      cx: 170;
+      cy: 170;
+      stroke-dasharray: 1200, 1200;
+      stroke-dashoffset: 0; //1200
+      stroke-width: 8px;
+      @include lg {
+        stroke-width: 10px;
+        r: 190;
+        cx: 200;
+        cy: 200;
+      }
+    }
   }
   h2 {
     font-weight: 600;
@@ -210,6 +240,10 @@
       position: relative;
       height: 200px;
       width: 200px;
+      transition: 0.3s all var(--custom-ease-out);
+      &:hover {
+        transform: scale(1.1);
+      }
       img {
         object-fit: contain;
       }
@@ -219,18 +253,7 @@
     display: flex;
     flex-direction: column;
     gap: 40px;
-    button {
-      border: 1px solid var(--secondary);
-      color: var(--secondary);
-      font-size: toRem(14);
-      line-height: calc(toRem(14) * 1.5);
-      height: 45px;
-      width: 125px;
-      border-radius: 5px;
-      background-color: transparent;
-      font-weight: 400;
-      cursor: pointer;
-    }
+
     h5 {
       font-weight: 400;
       color: var(--secondary);

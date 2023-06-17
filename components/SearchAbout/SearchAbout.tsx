@@ -2,6 +2,9 @@ import Image from "next/image";
 import s from "./about.module.scss";
 import { circleData, contentData } from "./data";
 import Footer from "../Footer/Footer";
+import Link from "next/link";
+import RollOverButton from "../RollOverButton/RollOverButton";
+import SvgGradient from "../SvgGradient/SvgGradient";
 
 const SearchAbout = () => {
   return (
@@ -33,7 +36,10 @@ const SearchAbout = () => {
               {circleData.map(({ title, color }, i) => {
                 return (
                   <div key={i} className={s.circle}>
-                    <div />
+                    <svg>
+                      <SvgGradient />
+                      <circle className={`border-${i}`} />
+                    </svg>
                     <h2 style={{ color }}>{i + 1}</h2>
                     <h3>{title}</h3>
                   </div>
@@ -76,11 +82,13 @@ const SearchAbout = () => {
                 nulla pariatur. aperiam, eaque ipsa quae ab illo inventore
                 veritatis et quasi architecto beatae vitae dicta sunt explicabo.
               </p>
-              <button>Read More</button>
+              <RollOverButton>Read More</RollOverButton>
             </div>
             <div className={s.bottom_img}>
               <div>
-                <Image src="/health-logo.png" fill alt="health-logo" />
+                <Link href="/roo-search-industries/health-logo">
+                  <Image src="/health-logo.png" fill alt="health-logo" />
+                </Link>
               </div>
             </div>
           </div>
