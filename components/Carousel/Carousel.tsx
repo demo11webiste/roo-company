@@ -146,7 +146,7 @@ const Team: React.FC<Props> = ({ bgChange = false, cardType }) => {
           </div>
         </div>
       </section>
-      <Footer isCapital={bgChange} />
+      {/* <Footer isCapital={bgChange} /> */}
     </>
   );
 };
