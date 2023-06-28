@@ -1,6 +1,7 @@
 import Image from "next/image";
 import s from "./footer.module.scss";
 import { IoLogoLinkedin } from "react-icons/io";
+import { IoMailOutline } from "react-icons/io5";
 import { RiArrowRightSLine } from "react-icons/ri";
 import Link from "next/link";
 
@@ -42,6 +43,7 @@ const Footer: React.FC<Props> = ({ isCapital }) => {
             <p>Stay in-touch with Roo</p>
             <div className={s.side3_input}>
               <input placeholder="Email" type="text" />
+              <IoMailOutline className={s.side3_input_icon} />
               <button>
                 <RiArrowRightSLine />
               </button>
@@ -52,7 +54,7 @@ const Footer: React.FC<Props> = ({ isCapital }) => {
         </div>
         <div className={s.lower}>
           <p>
-            &copy; 2023 Roo Partners, Inc. – ALL RIGHTS RESERVED{" "}
+            &copy; 2023 Roo Partners, Inc. – ALL RIGHTS RESERVED
             <Link href="#">Privacy Policy</Link> designed by moire marketing
             partners
           </p>

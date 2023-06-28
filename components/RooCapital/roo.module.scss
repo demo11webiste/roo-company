@@ -263,7 +263,7 @@
     text-align: center;
     @include lg {
       font-size: toRem(99);
-      letter-spacing: to(2.46);
+      letter-spacing: toRem(2.46);
     }
     span {
       font-size: toRem(30);
@@ -273,13 +273,13 @@
     }
   }
   p {
-    font-size: toRem(16);
+    font-size: toRem(17);
     font-weight: 400;
-    line-height: 1;
-    letter-spacing: toRem(0.74);
+    line-height: toRem(24);
+    letter-spacing: toRem(0.73);
     text-align: center;
     @include lg {
-      max-width: 250px;
+      max-width: 300px;
     }
   }
 }

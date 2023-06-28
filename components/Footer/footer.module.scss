@@ -97,6 +97,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+
   @include lg {
     margin-top: 40px;
     width: 20%;
@@ -104,6 +105,7 @@
       margin-top: 5px;
     }
   }
+
   a {
     margin-top: -12px;
     color: var(--light);
@@ -122,12 +124,14 @@
   &_input {
     display: flex;
     gap: 15px;
+    position: relative;
     input {
       background-color: #959597;
       color: var(--light);
       height: 32px;
       border: none;
       padding: 10px;
+      padding-left: 30px;
       &:focus {
         outline: none;
       }
@@ -136,14 +140,27 @@
       }
     }
 
+    &_icon {
+      position: absolute;
+      left: 5px;
+      transform: translateY(-50%);
+      top: 50%;
+      font-size: 1.25rem;
+    }
+
     button {
       height: 32px;
       width: 32px;
       background-color: #959597;
       border: none;
       color: var(--light);
+      transition: 0.3s all ease;
+      cursor: pointer;
       svg {
         font-size: 28px;
+      }
+      &:hover {
+        background-color: var(--secondary);
       }
     }
   }
@@ -171,6 +188,7 @@
       color: rgba(255, 254, 254, 0.5);
       text-decoration: underline;
       text-underline-offset: 3px;
+      margin-inline: 20px;
     }
   }
   svg {

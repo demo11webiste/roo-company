@@ -25,6 +25,17 @@ export const animation = (heading: AnimationType) => {
     delay: 2,
   });
 
+  gsap.to(".icon", {
+    opacity: 0,
+    duration: 0.3,
+    scrollTrigger: {
+      trigger: ".feature",
+      start: "top 80%",
+      markers: false,
+      toggleActions: "play none none reverse",
+    },
+  });
+
   // hero animation
 
   gsap.timeline().from(heading.mainHeading.lines, {
@@ -45,7 +56,7 @@ export const animation = (heading: AnimationType) => {
         markers: false,
       },
     })
-    .to(".icon", { opacity: 0, duration: 0.3 })
+
     .from(heading.featureHeading.lines, {
       y: 150,
       stagger: 0.2,
@@ -103,12 +114,13 @@ export const animation = (heading: AnimationType) => {
     })
     .from(".card-heading-2", { opacity: 0 }, "<0.4")
     .from(".card-para-2", { opacity: 0 }, "<0.3");
+
   gsap
     .timeline({
       scrollTrigger: {
         trigger: ".card-box-3",
         markers: false,
-        start: "top center",
+        start: "top bottom",
       },
     })
     .from(".card-heading-3", { opacity: 0 }, "<0.4")

@@ -95,15 +95,22 @@ const Navbar = () => {
           data-active={isMenuShow}
           className={s.logo}
         >
-          <Link onClick={handleClose} href="/">
-            {NavbarLogoSwitch === "partner" ? (
+          {NavbarLogoSwitch === "partner" ? (
+            <Link onClick={handleClose} href="/">
               <Image src="/roo-partners-logo.png" alt="roo-capital" fill />
-            ) : NavbarLogoSwitch === "search" ? (
-              <Image src="/roo-search-logo.png" alt="roo-capital" fill />
-            ) : (
+            </Link>
+          ) : NavbarLogoSwitch === "search" ? (
+            <Link onClick={handleClose} href={isMenuShow ? "/" : "/roo-search"}>
+              <Image src="/roo-search-logo.png" alt="roo-search" fill />
+            </Link>
+          ) : (
+            <Link
+              onClick={handleClose}
+              href={isMenuShow ? "/" : "/roo-capital"}
+            >
               <Image src="/roo-capital-logo.png" alt="roo-capital" fill />
-            )}
-          </Link>
+            </Link>
+          )}
         </div>
         <button
           data-active={isMenuShow}
