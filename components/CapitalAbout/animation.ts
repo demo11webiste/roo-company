@@ -43,9 +43,9 @@ export const animation = (heading: Heading) => {
       clipPath: "inset(0 0 100% 0)",
     })
     .from(".stage-small", { opacity: 0 })
-    .from(".stage-grid", { opacity: 0 })
-    .from(".stage-card-heading", { opacity: 0 }, "<0.2")
-    .from(".stage-card-price", { opacity: 0 }, "<0.2")
+    .from(".stage-grid", { opacity: 0 }, "<")
+    .from(".stage-card-heading", { opacity: 0 }, "<")
+    .from(".stage-card-price", { opacity: 0, duration: 0.3 })
     .from(".stage-card-para", { opacity: 0 }, "<0.2");
 
   // say
