@@ -13,7 +13,7 @@ $bgColor: rgb(245, 245, 245, 0.3);
   justify-content: center;
   border-radius: 4px;
   cursor: pointer;
-  transition: 0.3s all var(--custom-ease-out);
+  transition: 0.8s all var(--custom-ease-out);
   @include lg {
     height: 280px;
     width: 250px;
@@ -52,9 +52,9 @@ $bgColor: rgb(245, 245, 245, 0.3);
   opacity: 0;
   flex-direction: column;
   transition-property: opacity, height, width;
-  transition-duration: 0.5s, 0.3s, 0.3s;
+  transition-duration: 0.8s, 0.5s, 0.5s;
   transition-timing-function: var(--custom-ease-out);
-  transition-delay: 0.3s, 0s, 0s;
+  transition-delay: 0.5s, 0s, 0s;
   @include lg {
     &[data-active="true"] {
       height: fit-content;
@@ -97,7 +97,7 @@ $bgColor: rgb(245, 245, 245, 0.3);
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: 0.3s all var(--custom-ease-out);
+  transition: 0.8s all var(--custom-ease-out);
   h1 {
     font-size: toRem(98.5);
     line-height: calc(toRem(98.5) * 1.2);
@@ -125,7 +125,8 @@ $bgColor: rgb(245, 245, 245, 0.3);
     opacity: 0;
     overflow: hidden;
     padding-bottom: 5px;
-    transition: 0.5s all var(--custom-ease-out);
+    transition: 1s all ease-in-out;
+    transition-delay: 0.5s;
     @include lg {
       &[data-active="true"] {
         height: fit-content;
