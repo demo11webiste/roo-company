@@ -14,6 +14,17 @@ export const animation = (heading: Heading) => {
 
   gsap.to(".icon", { y: -30, repeat: -1, yoyo: true, duration: 0.6 });
 
+  gsap.to(".icon", {
+    opacity: 0,
+    duration: 0.3,
+    scrollTrigger: {
+      trigger: ".feature",
+      start: "top 80%",
+      markers: false,
+      toggleActions: "play none none reverse",
+    },
+  });
+
   //main
 
   gsap.from(heading.mainHeading.lines, {
@@ -36,7 +47,7 @@ export const animation = (heading: Heading) => {
         scrollTrigger: {
           trigger: ".content-head",
           markers: false,
-          start: "top center",
+          start: "top-=80% center",
         },
         defaults: {
           duration: 2,
@@ -70,7 +81,7 @@ export const animation = (heading: Heading) => {
           scrollTrigger: {
             trigger: `.content-box-${i}`,
             markers: false,
-            start: "top center",
+            start: "top-=80% center",
           },
           defaults: {
             duration: 2,
@@ -91,7 +102,7 @@ export const animation = (heading: Heading) => {
           scrollTrigger: {
             trigger: `.content-box-${i + 2}`,
             markers: false,
-            start: "top center",
+            start: "top-=80% center",
           },
           defaults: {
             duration: 2,

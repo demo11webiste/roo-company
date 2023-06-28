@@ -44,7 +44,7 @@ const RooSearch = () => {
             <IoIosArrowDown className="icon" />
           </div>
 
-          <div className={s.grid}>
+          <div className={`${s.grid} feature`}>
             <div className={s.contentGrid}>
               <div className={`${s.head} content-head`}>
                 <h2 id="content-head-heading">
