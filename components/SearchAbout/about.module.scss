@@ -174,7 +174,7 @@
       cx: 170;
       cy: 170;
       stroke-dasharray: 1200, 1200;
-      stroke-dashoffset: 0; //1200
+      stroke-dashoffset: 1200; //1200
       stroke-width: 8px;
       @include lg {
         stroke-width: 10px;

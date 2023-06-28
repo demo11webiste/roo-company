@@ -5,24 +5,39 @@ import Footer from "../Footer/Footer";
 import Link from "next/link";
 import RollOverButton from "../RollOverButton/RollOverButton";
 import SvgGradient from "../SvgGradient/SvgGradient";
+import { useRef } from "react";
+import useGsapContext from "@/hooks/useGsapContext";
+import useLayout from "@/hooks/useLayout";
+import { animation } from "./animation";
+import SplitType from "split-type";
 
 const SearchAbout = () => {
+  const root = useRef<HTMLElement>(null);
+
+  const ctx = useGsapContext(root);
+
+  useLayout(() => {
+    const mainHeading = SplitType.create("#main-heading");
+    ctx.add(() => animation(mainHeading));
+    return () => ctx.revert();
+  }, []);
+
   return (
     <>
-      <section className={s.main}>
+      <section ref={root} className={s.main}>
         <div className={s.container}>
           <div className={s.hero}>
-            <h5>WHO WE ARE</h5>
-            <h1>Growth. The cornerstone of Roo Search.</h1>
+            <h5 className="main-small">WHO WE ARE</h5>
+            <h1 id="main-heading">Growth. The cornerstone of Roo Search.</h1>
             <div className={s.hero_box}>
-              <p>
+              <p className="main-para-1">
                 At Roo Search, we are incredibly proud to be involved with
                 high-growth, innovative companies that touch the lives of
                 millions of people. As former operators we have a deep
                 understanding of the unique challenges and opportunities that
                 your organization faces.
               </p>
-              <p>
+              <p className="main-para-2">
                 The core of our philosophy is cultivating deep relationships.
                 Specializing in Digital Health, Healthcare and Technology, our
                 team has built extensive networks and experience recruiting for
@@ -35,21 +50,25 @@ const SearchAbout = () => {
             <div className={s.cirlceGrid}>
               {circleData.map(({ title, color }, i) => {
                 return (
-                  <div key={i} className={s.circle}>
+                  <div key={i} className={`${s.circle} circle-${i}`}>
                     <svg>
                       <SvgGradient />
                       <circle className={`border-${i}`} />
                     </svg>
-                    <h2 style={{ color }}>{i + 1}</h2>
-                    <h3>{title}</h3>
+                    <h2 className={`border-head-${i}`} style={{ color }}>
+                      {i + 1}
+                    </h2>
+                    <h3 className={`border-para-${i}`}>{title}</h3>
                   </div>
                 );
               })}
             </div>
-            <div className={s.contentGrid}>
+            <div className={`${s.contentGrid} contentGrid`}>
               <div className={s.headContent}>
-                <h2>Experience the Roo Difference</h2>
-                <p>
+                <h2 className="contentGrid-head">
+                  Experience the Roo Difference
+                </h2>
+                <p className="contentGrid-para">
                   Our unique process is designed for efficiency and proven to
                   deliver results within a compressed time frame.
                 </p>
@@ -57,8 +76,8 @@ const SearchAbout = () => {
               {contentData.map(({ paraOne, paraTwo }, i) => {
                 return (
                   <div key={i} className={s.content}>
-                    <p>{paraOne}</p>
-                    <p>{paraTwo}</p>
+                    <p className={`para-one-${i}`}>{paraOne}</p>
+                    <p className={`para-two-${i}`}>{paraTwo}</p>
                   </div>
                 );
               })}
